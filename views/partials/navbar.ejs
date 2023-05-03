@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img
+        src="https://e7.pngegg.com/pngimages/750/189/png-clipart-white-and-red-air-jordan-1-shoe-illustration-jumpman-air-jordan-drawing-shoe-sneakers-running-shoes-white-outdoor-shoe.png"
+        alt="logo"
+        width="50"
+        height="30"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    ></button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link <% if (active === 'landing') { %> active <% } %>"
+            aria-current="page"
+            href="/"
+            >LANDING</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link <% if (active === 'men') { %> active <% } %>"
+            href="/men"
+            >MEN</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link <% if (active === 'women') { %> active <% } %>"
+            href="/women"
+            >WOMEN</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link <% if (active === 'kids') { %> active <% } %>"
+            href="/kids"
+            >KIDS</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link <% if (active === 'favorites') { %> active <% } %>"
+            href="/favorites"
+            >FAVORITES</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
