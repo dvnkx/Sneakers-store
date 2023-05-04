@@ -32,7 +32,7 @@ const serverConfig = {
     path: __dirname,
     filename: "server-compiled.js",
   },
-  externals: [nodeExternals()],
+  externals: [nodeExternals(), { sqlite3: "commonjs sqlite3" }],
   target: "node",
   mode: "production",
   module: typicalReact,
