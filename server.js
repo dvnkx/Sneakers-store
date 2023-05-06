@@ -1,14 +1,17 @@
 import express from "express";
+import multer from "multer";
+
 import mongoose from "mongoose";
+
 import {
   registerValidation,
   loginValidation,
   createCardValidation,
 } from "./validations.js";
-import checkAuth from "./utils/checkAuth.js";
 
-import * as UserController from "./Controllers/UserControllers.js";
-import * as CardControllers from "./Controllers/CardControllers.js";
+import { handleValidationErrors, checkAuth } from "./utils/index.js";
+
+import { UserController, CardController } from "./controllers/index.js";
 
 mongoose
   .connect(
@@ -18,20 +21,61 @@ mongoose
 
 const app = express();
 
+const storage = multer.diskStorage({
+  destination: (_, __, cb) => {
+    cb(null, "uploads");
+  },
+  filename: (_, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({
+  storage,
+});
+
 app.set("view engine", "ejs");
 app.set("views", "./views");
 app.use(express.static("public"));
 app.use(express.json());
+app.use("/uploads", express.static("uploads"));
 
-app.post("/auth/login", loginValidation, UserController.login);
-app.post("/auth/register", registerValidation, UserController.register);
+app.post(
+  "/auth/login",
+  loginValidation,
+  handleValidationErrors,
+  UserController.login
+);
+app.post(
+  "/auth/register",
+  registerValidation,
+  handleValidationErrors,
+  UserController.register
+);
 app.get("/auth/me", checkAuth, UserController.getMe);
 
-app.get("/cards", CardControllers.getAll);
-app.get("/cards:id", CardControllers.getOne);
-app.post("/cards", checkAuth, createCardValidation, CardControllers.create);
-app.delete("/cards:id", checkAuth, CardControllers.remove);
-app.patch("/cards:id", checkAuth, CardControllers.update);
+app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
+  res.json({
+    url: `/ulpoads/${req.file.originalname}`,
+  });
+});
+
+app.get("/cards", CardController.getAll);
+app.get("/cards:id", CardController.getOne);
+app.post(
+  "/cards",
+  checkAuth,
+  createCardValidation,
+  handleValidationErrors,
+  CardController.create
+);
+app.delete("/cards:id", checkAuth, CardController.remove);
+app.patch(
+  "/cards:id",
+  checkAuth,
+  handleValidationErrors,
+  CardController.update
+);
 
 app.get("/", (req, res) => {
   res.render("landingPage", {
