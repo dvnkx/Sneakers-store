@@ -1,7 +1,13 @@
-import "./App.css";
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import { Router } from "./pages/routes/index.jsx";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  );
 }
 
 export default App;
