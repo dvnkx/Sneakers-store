@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Kanit", sans-serif;
+}
+
+p {
+  display: inline-block;
+  margin-left: 7%;
+  margin-right: 7%;
+  font-size: 100px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.brand-intro {
+  border-top: 1.5px solid #0b0909;
+  border-bottom: 1.5px solid #0b0909;
+  border-left: 1px solid #0b0909;
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.brand-intro img {
+  width: 25%;
+  height: 502px;
+}
+
+.text-intro {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  font-size: 90px;
+  color: #0b0909;
+}
+
+.text-content {
+  max-width: 1680px;
+  min-height: 600px;
+  background-color: #d6d6d6;
+  font-size: 1.2rem;
+}
+.text-content .description {
+  margin-top: 45px;
+  margin-bottom: 45px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.legit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1em;
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  color: #44444c;
+}
+.legit h1 {
+  position: absolute;
+  font-size: 5em;
+  top: 43px;
+  left: 1em;
+  line-height: 70px;
+}
+.legit h2 {
+  position: absolute;
+  bottom: 9%;
+  right: 7%;
+  font-size: 2em;
+}
+.legit p {
+  position: absolute;
+  font-size: 2em;
+  background-color: #d6d6d6;
+  border: 3px solid #0b0909;
+  padding: 10px;
+  text-transform: uppercase;
+}
+.legit .item-1 {
+  top: 37%;
+  left: 51%;
+}
+.legit .item-2 {
+  top: 30%;
+  left: 22%;
+}
+.legit .item-3 {
+  top: 60%;
+  left: 37%;
+}
+.legit .background {
+  width: 100%;
+  height: auto;
+}
+.legit .example-img {
+  position: absolute;
+  top: 20%;
+  left: 19%;
+  width: 50%;
+  height: auto;
+  -webkit-transform: rotate(-20deg);
+      -ms-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+}
+
+.container {
+  width: 100%;
+  height: auto;
+}
