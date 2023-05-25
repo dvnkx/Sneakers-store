@@ -1,8 +1,9 @@
 import React from "react";
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import { basket, account } from "../../assets/index.js";
 import { logo } from "../../assets/index.js";
 import "./styles.css";
+
+import CustomLink from "../../components/ui/customLink/customLink.jsx";
 
 const Navbar = () => {
   return (
@@ -29,17 +30,6 @@ const Navbar = () => {
         <img className="icon" alt="basket-icon" src={basket} />
       </CustomLink>
     </nav>
-  );
-};
-
-const CustomLink = ({ to, children, ...props }) => {
-  const resolvedPath = useResolvedPath(to);
-  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
-
-  return (
-    <Link to={to} className={isActive && "active"} {...props}>
-      {children}
-    </Link>
   );
 };
 

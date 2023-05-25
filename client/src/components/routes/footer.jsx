@@ -28,12 +28,8 @@ const Footer = () => {
             type="input"
             className="form__field"
             placeholder="ENTER YOUR EMAIL"
-            name="ENTER YOUR EMAIL"
-            id="ENTER YOUR EMAIL"
           />
-          <label for="ENTER YOUR EMAIL" className="form__label">
-            ENTER YOUR EMAIL
-          </label>
+          <label className="form__label">ENTER YOUR EMAIL</label>
         </div>
       </div>
       <div className="down">

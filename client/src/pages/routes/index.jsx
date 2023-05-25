@@ -10,6 +10,7 @@ import {
   Men,
   Women,
   Favorites,
+  Sneaker,
 } from "../index.js";
 
 import { Navbar, Footer } from "../../components/routes/index.js";
@@ -24,6 +25,7 @@ export const Router = () => {
           <Route path="men" element={<Men />} />
           <Route path="women" element={<Women />} />
           <Route path="kids" element={<Kids />} />
+          <Route path="sneaker" element={<Sneaker />} />
           <Route path="favorites" element={<Favorites />} />
           <Route path="account" />
           <Route path="basket" />

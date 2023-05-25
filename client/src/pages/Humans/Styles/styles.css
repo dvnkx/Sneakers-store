@@ -1,0 +1,100 @@
+.humans-container {
+  width: 100%;
+  height: auto;
+}
+.humans-container .head {
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 2px solid #0b0909;
+}
+.humans-container .head p {
+  font-size: 30px;
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  width: 30%;
+}
+
+.form__field {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #8c8c8c;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #0b0909;
+  padding: 7px 0;
+  background: transparent;
+  -webkit-transition: border-color 0.2s;
+  -o-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+.form__field::-webkit-input-placeholder {
+  color: transparent;
+}
+.form__field::-moz-placeholder {
+  color: transparent;
+}
+.form__field:-ms-input-placeholder {
+  color: transparent;
+}
+.form__field::-ms-input-placeholder {
+  color: transparent;
+}
+.form__field::placeholder {
+  color: transparent;
+}
+.form__field:-moz-placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+.form__field:-ms-input-placeholder ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 1rem;
+  color: #8c8c8c;
+}
+
+.form__field:focus {
+  font-weight: 700;
+  border-width: 3px;
+  -o-border-image: -o-linear-gradient(left, #8c8c8c, #d6d6d6);
+     border-image: -webkit-gradient(linear, left top, right top, from(#8c8c8c), to(#d6d6d6));
+     border-image: linear-gradient(to right, #8c8c8c, #d6d6d6);
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  top: 0;
+  display: block;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 1rem;
+  color: #0b0909;
+  font-weight: 700;
+}
