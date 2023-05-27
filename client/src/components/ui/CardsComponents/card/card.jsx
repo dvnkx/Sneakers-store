@@ -1,28 +1,22 @@
 import React from "react";
 import "./styles.css";
 
-import CustomLink from "../../customLink/customLink";
+import CustomLink from "../../CustomLink";
 
-const Card = () => {
+const Card = ({ brand, model, cost, images, color, id }) => {
   return (
-    <CustomLink to={"/sneakers/sneaker"} className="card-container">
+    <CustomLink to={`/sneakers/${id}`} className="card-container">
       <div className="card-head">
-        <h1>Vans</h1>
-        <p>$60.00</p>
+        <h1>{brand}</h1>
+        <p>{cost}$</p>
       </div>
       <div className="card-img">
-        <img
-          className="main-img"
-          src="https://catalog.hkstore.com/pub/media/catalog/product/cache/f6ba1e70ed71d59797ccd3471b310de4/1/0/105vn0a5krfb0b_1.jpg"
-        />
-        <img
-          className="alt-img"
-          src="https://static.supersklep.cz/1298344-boty-vans-old-skool-love-me-love-me-not-daisy-true-white.jpg?w=1920"
-        />
+        <img alt="main" className="main-img" src={images[0]} />
+        <img alt="alt" className="alt-img" src={images[1]} />
       </div>
       <div className="card-foot">
-        <h1>Vans Old School Love Me</h1>
-        <p>White</p>
+        <h1>{model}</h1>
+        <p>{color}</p>
       </div>
     </CustomLink>
   );

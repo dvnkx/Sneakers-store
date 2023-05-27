@@ -6,9 +6,7 @@ import {
   Login,
   NotFound,
   Registration,
-  Kids,
-  Men,
-  Women,
+  Category,
   Favorites,
   Sneaker,
 } from "../index.js";
@@ -22,10 +20,10 @@ export const Router = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/sneakers">
-          <Route path="men" element={<Men />} />
-          <Route path="women" element={<Women />} />
-          <Route path="kids" element={<Kids />} />
-          <Route path="sneaker" element={<Sneaker />} />
+          <Route path="men" element={<Category />} />
+          <Route path="women" element={<Category />} />
+          <Route path="kids" element={<Category />} />
+          <Route path=":id" element={<Sneaker />} />
           <Route path="favorites" element={<Favorites />} />
           <Route path="account" />
           <Route path="basket" />

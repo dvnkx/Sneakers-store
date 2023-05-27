@@ -1,12 +1,10 @@
 .card-container {
   display: inline-block;
-  width: 393px;
+  width: 384px;
   height: 660px;
   border: 2px solid #0b0909;
   margin: 1em;
   color: #0b0909;
-}
-.card-container :hover {
   cursor: pointer;
 }
 .card-container .card-head {

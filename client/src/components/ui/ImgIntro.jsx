@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./styles.css";
-
 const ImgIntro = ({ alt, logoAlt, src, logo }) => {
   return (
     <div className="tc-container">

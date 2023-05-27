@@ -1,16 +1,13 @@
-@import "../../../Styles/global-variables";
+@import "../../../../Styles/global-variables";
 
 .card-container {
   display: inline-block;
-  width: 393px;
+  width: 384px;
   height: 660px;
   border: 2px solid $primary;
   margin: 1em;
   color: $primary;
-
-  :hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 
   .card-head {
     display: flex;

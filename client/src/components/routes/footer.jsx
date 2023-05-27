@@ -1,25 +1,26 @@
 import React from "react";
+import CustomLink from "../ui/CustomLink";
+
 import "./styles.css";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer>
       <h1>Lace Store</h1>
       <div className="grid">
-        <Link>About us</Link>
-        <Link>Privacy Policy</Link>
-        <Link>How to Order</Link>
-        <Link>Faq</Link>
-        <Link>Refund Policy</Link>
-        <Link>How to Refund</Link>
-        <Link>Contact us</Link>
-        <Link>Terms of Service</Link>
-        <Link>Track Your Order</Link>
-        <Link>Products</Link>
-        <Link>Customer Care</Link>
+        <CustomLink>About us</CustomLink>
+        <CustomLink>Privacy Policy</CustomLink>
+        <CustomLink>How to Order</CustomLink>
+        <CustomLink>Faq</CustomLink>
+        <CustomLink>Refund Policy</CustomLink>
+        <CustomLink>How to Refund</CustomLink>
+        <CustomLink>Contact us</CustomLink>
+        <CustomLink>Terms of Service</CustomLink>
+        <CustomLink>Track Your Order</CustomLink>
+        <CustomLink>Products</CustomLink>
+        <CustomLink>Customer Care</CustomLink>
         <span />
-        <Link>Career</Link>
+        <CustomLink>Career</CustomLink>
       </div>
       <div className="join">
         <h2>Join Our Community</h2>
@@ -32,17 +33,17 @@ const Footer = () => {
           <label className="form__label">ENTER YOUR EMAIL</label>
         </div>
       </div>
-      <div className="down">
+      <div className="bottom">
         <div>
           <span />
         </div>
         <div className="links">
           <h3>© 2023 LACESTORE. All right reserved.</h3>
           <div>
-            <p>Instagram</p>
-            <p>Twitter</p>
-            <p>Telegram</p>
-            <p>LinkedIn</p>
+            <CustomLink>Instagram</CustomLink>
+            <CustomLink>Twitter</CustomLink>
+            <CustomLink>Telegram</CustomLink>
+            <CustomLink>LinkedIn</CustomLink>
           </div>
         </div>
       </div>

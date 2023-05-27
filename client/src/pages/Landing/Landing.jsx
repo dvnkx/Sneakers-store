@@ -1,6 +1,7 @@
 import React from "react";
+import "./styles.css";
 
-import ImgIntro from "../../components/ui/imgIntro/ImgIntro.jsx";
+import { ImgIntro } from "../../components/ui/index";
 import {
   adidaslogo,
   nblogo,
@@ -9,8 +10,6 @@ import {
   background,
   example,
 } from "../../assets/index.js";
-
-import "./styles.css";
 
 const Landing = () => {
   return (

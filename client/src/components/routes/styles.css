@@ -27,10 +27,28 @@ nav a {
           align-items: center;
   list-style-type: none;
 }
+nav a.active p::before {
+  width: 70%;
+  -webkit-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+nav a:first-of-type {
+  width: 20%;
+  border-right: 0.75px solid #8c8c8c;
+}
 nav a p {
   font-size: 20px;
   color: #0b0909;
   position: relative;
+}
+nav a p:before {
+  position: absolute;
+  content: "";
+  width: 0%;
+  height: 1px;
+  border-bottom: 2px solid #0b0909;
+  bottom: 3px;
 }
 nav .icons {
   width: 5%;
@@ -46,27 +64,6 @@ nav .icon {
 nav .logo {
   width: 60px;
   height: 60px;
-}
-
-nav a:first-of-type {
-  width: 20%;
-  border-right: 0.75px solid #8c8c8c;
-}
-
-nav a p::before {
-  position: absolute;
-  content: "";
-  width: 0%;
-  height: 1px;
-  border-bottom: 2px solid #0b0909;
-  bottom: 3px;
-}
-
-nav a.active p::before {
-  width: 70%;
-  -webkit-transition: all 200ms ease-in-out;
-  -o-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
 }
 
 footer {
@@ -205,11 +202,11 @@ footer .join .form__field:focus ~ .form__label {
   font-weight: 700;
 }
 
-.down {
+.bottom {
   width: 100%;
   height: auto;
 }
-.down div {
+.bottom div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -218,22 +215,27 @@ footer .join .form__field:focus ~ .form__label {
           justify-content: center;
   margin-bottom: 25px;
 }
-.down div span {
+.bottom div span {
   width: 90%;
   height: auto;
   border-top: 2px solid #0b0909;
 }
-.down .links {
+.bottom .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
+}
+.bottom .links h3 {
+  font-size: 20px;
   margin-left: 5%;
 }
-.down .links h3 {
-  width: 72.5%;
-  display: inline-block;
-  font-size: 20px;
+.bottom .links div {
+  margin-left: 48.5%;
 }
-.down .links div p {
-  font-size: 16px;
+.bottom .links div a {
+  margin: 0 1em;
+  color: #0b0909;
 }

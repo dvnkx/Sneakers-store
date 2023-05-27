@@ -1,9 +1,9 @@
 import React from "react";
-import { basket, account } from "../../assets/index.js";
-import { logo } from "../../assets/index.js";
-import "./styles.css";
 
-import CustomLink from "../../components/ui/customLink/customLink.jsx";
+import { basket, account, logo } from "../../assets/index.js";
+import CustomLink from "../ui/CustomLink.jsx";
+
+import "./styles.css";
 
 const Navbar = () => {
   return (

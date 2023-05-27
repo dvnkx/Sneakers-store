@@ -11,8 +11,7 @@ const BackLine = () => {
   return (
     <div className="line-back">
       <button onClick={goBack}>
-        <p>&larr;</p>
-        <p>Back</p>
+        <p>&larr; Back</p>
       </button>
     </div>
   );

@@ -1,6 +1,8 @@
 export { default as logo } from "./icons/logo.png";
 export { default as basket } from "./icons/basket.png";
 export { default as account } from "./icons/account.png";
+export { default as heart } from "./icons/heart.png";
+export { default as filledHeart } from "./icons/filled-heart.png";
 export { default as background } from "./visions/background.jpg";
 export { default as example } from "./visions/example.png";
 export { default as nblogo } from "./logos/nb-logo.png";
