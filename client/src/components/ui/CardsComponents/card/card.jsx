@@ -3,20 +3,20 @@ import "./styles.css";
 
 import CustomLink from "../../CustomLink";
 
-const Card = ({ brand, model, cost, images, color, id }) => {
+const Card = ({ card }) => {
   return (
-    <CustomLink to={`/sneakers/${id}`} className="card-container">
+    <CustomLink to={`/sneakers/${card._id}`} className="card-container">
       <div className="card-head">
-        <h1>{brand}</h1>
-        <p>{cost}$</p>
+        <h1>{card.brand}</h1>
+        <p>{card.cost}$</p>
       </div>
       <div className="card-img">
-        <img alt="main" className="main-img" src={images[0]} />
-        <img alt="alt" className="alt-img" src={images[1]} />
+        <img alt="main" className="main-img" src={card.images[0]} />
+        <img alt="alt" className="alt-img" src={card.images[1]} />
       </div>
       <div className="card-foot">
-        <h1>{model}</h1>
-        <p>{color}</p>
+        <h1>{card.model}</h1>
+        <p>{card.color}</p>
       </div>
     </CustomLink>
   );

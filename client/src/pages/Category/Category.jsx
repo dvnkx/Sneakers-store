@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./styles.css";
 
 import { fetchCards } from "../../redux/slices/cards";
 import { getPageName } from "../../helpers/PageName";
 
-import { Card, CardSkeleton } from "../../components/ui/index";
+import { Card, CardSkeleton, FilterInput } from "../../components/ui/index";
 
 export const Cards = () => {
+  const [searchResult, setSearchResult] = useState("");
   const currentPage = getPageName();
 
   const dispatch = useDispatch();
@@ -23,53 +24,37 @@ export const Cards = () => {
     <div className="humans-container">
       <div className="head">
         <p>{currentPage}`s sneakers</p>
-        <div className="form__group field">
-          <input type="input" className="form__field" placeholder="Search" />
-          <label className="form__label">SEARCH</label>
-        </div>
+        <FilterInput
+          placeholder={"SEARCH"}
+          label={"SEARCH"}
+          type={"text"}
+          searchResult={searchResult}
+          setSearchResults={setSearchResult}
+        />
       </div>
       <div className="cards">
         {isCardsLoading ? (
           <CardSkeleton cards={4} />
         ) : (
-          cards.items.map((sneaker) => {
-            return sneaker.sex === currentPage ? (
-              <Card
-                key={sneaker._id}
-                id={sneaker._id}
-                brand={sneaker.brand}
-                model={sneaker.model}
-                cost={sneaker.cost}
-                images={sneaker.images}
-                color={sneaker.color}
-              />
-            ) : currentPage !== "Kids" &&
-              sneaker.sex === "Unisex" &&
-              !sneaker.forKids ? (
-              <Card
-                key={sneaker._id}
-                id={sneaker._id}
-                brand={sneaker.brand}
-                model={sneaker.model}
-                cost={sneaker.cost}
-                images={sneaker.images}
-                color={sneaker.color}
-              />
-            ) : (
-              currentPage === "Kids" &&
-              sneaker.forKids && (
-                <Card
-                  key={sneaker._id}
-                  id={sneaker._id}
-                  brand={sneaker.brand}
-                  model={sneaker.model}
-                  cost={sneaker.cost}
-                  images={sneaker.images}
-                  color={sneaker.color}
-                />
-              )
-            );
-          })
+          cards.items
+            .filter((card) => {
+              const searchTerm = searchResult.toLowerCase();
+              const model = card.model.toLowerCase();
+              const brand = card.brand.toLowerCase();
+
+              return brand.includes(searchTerm) || model.includes(searchTerm);
+            })
+            .map((card) => {
+              return card.sex === currentPage ? (
+                <Card card={card} />
+              ) : currentPage !== "Kids" &&
+                card.sex === "Unisex" &&
+                !card.forKids ? (
+                <Card card={card} />
+              ) : (
+                currentPage === "Kids" && card.forKids && <Card card={card} />
+              );
+            })
         )}
       </div>
     </div>

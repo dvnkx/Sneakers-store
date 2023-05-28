@@ -2,6 +2,7 @@ import React from "react";
 import CustomLink from "../ui/CustomLink";
 
 import "./styles.css";
+import { FilterInput } from "../ui";
 
 const Footer = () => {
   return (
@@ -24,14 +25,11 @@ const Footer = () => {
       </div>
       <div className="join">
         <h2>Join Our Community</h2>
-        <div className="form__group field">
-          <input
-            type="input"
-            className="form__field"
-            placeholder="ENTER YOUR EMAIL"
-          />
-          <label className="form__label">ENTER YOUR EMAIL</label>
-        </div>
+        <FilterInput
+          placeholder={"ENTER YOUR EMAIL"}
+          label={"ENTER YOUR EMAIL"}
+          type={"email"}
+        />
       </div>
       <div className="bottom">
         <div>
