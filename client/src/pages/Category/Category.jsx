@@ -5,7 +5,7 @@ import "./styles.css";
 import { fetchCards } from "../../redux/slices/cards";
 import { getPageName } from "../../helpers/PageName";
 
-import { Card, CardSkeleton, FilterInput } from "../../components/ui/index";
+import { Card, CardSkeleton, Input } from "../../components/ui/index";
 
 export const Cards = () => {
   const [searchResult, setSearchResult] = useState("");
@@ -24,12 +24,12 @@ export const Cards = () => {
     <div className="humans-container">
       <div className="head">
         <p>{currentPage}`s sneakers</p>
-        <FilterInput
+        <Input
           placeholder={"SEARCH"}
           label={"SEARCH"}
           type={"text"}
-          searchResult={searchResult}
-          setSearchResults={setSearchResult}
+          value={searchResult}
+          onChange={setSearchResult}
         />
       </div>
       <div className="cards">
@@ -46,13 +46,14 @@ export const Cards = () => {
             })
             .map((card) => {
               return card.sex === currentPage ? (
-                <Card card={card} />
+                <Card key={card._id} card={card} />
               ) : currentPage !== "Kids" &&
                 card.sex === "Unisex" &&
                 !card.forKids ? (
-                <Card card={card} />
+                <Card key={card._id} card={card} />
               ) : (
-                currentPage === "Kids" && card.forKids && <Card card={card} />
+                currentPage === "Kids" &&
+                card.forKids && <Card key={card._id} card={card} />
               );
             })
         )}

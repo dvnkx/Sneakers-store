@@ -2,7 +2,7 @@ import React from "react";
 import CustomLink from "../ui/CustomLink";
 
 import "./styles.css";
-import { FilterInput } from "../ui";
+import { Input } from "../ui";
 
 const Footer = () => {
   return (
@@ -25,7 +25,7 @@ const Footer = () => {
       </div>
       <div className="join">
         <h2>Join Our Community</h2>
-        <FilterInput
+        <Input
           placeholder={"ENTER YOUR EMAIL"}
           label={"ENTER YOUR EMAIL"}
           type={"email"}
