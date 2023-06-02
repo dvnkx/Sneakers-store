@@ -3,6 +3,7 @@ import {
   cardsReducer,
   cardDataReducer,
   favoritesReducer,
+  authReducer,
 } from "./slices/index.js";
 
 const store = configureStore({
@@ -10,6 +11,7 @@ const store = configureStore({
     cards: cardsReducer,
     card: cardDataReducer,
     favorites: favoritesReducer,
+    auth: authReducer,
   },
 });
 

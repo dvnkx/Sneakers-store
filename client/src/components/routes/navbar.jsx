@@ -1,11 +1,17 @@
 import React from "react";
 
+import { useSelector } from "react-redux";
+
+import { selectIsAuth } from "../../redux/slices/auth.js";
+
 import { basket, account, logo } from "../../assets/index.js";
 import CustomLink from "../ui/CustomLink.jsx";
 
 import "./styles.css";
 
 const Navbar = () => {
+  const isAuth = useSelector(selectIsAuth);
+
   return (
     <nav>
       <CustomLink to="/">
@@ -23,10 +29,10 @@ const Navbar = () => {
       <CustomLink to="/sneakers/favorites">
         <p>Favorites</p>
       </CustomLink>
-      <CustomLink className="icons" to="/auth/account">
+      <CustomLink className="icons" to={isAuth ? "/user/account" : "/login"}>
         <img className="icon" alt="account-icon" src={account} />
       </CustomLink>
-      <CustomLink className="icons2" to="/auth/basket">
+      <CustomLink className="icons2" to={isAuth ? "/user/basket" : "/login"}>
         <img className="icon" alt="basket-icon" src={basket} />
       </CustomLink>
     </nav>

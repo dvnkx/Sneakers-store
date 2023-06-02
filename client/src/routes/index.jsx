@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   Landing,
@@ -9,29 +10,39 @@ import {
   Category,
   Favorites,
   Sneaker,
-} from "../index.js";
+  Account,
+} from "../pages/index.js";
 
-import { Navbar, Footer } from "../../components/routes/index.js";
+import { fetchAuthMe, selectIsAuth } from "../redux/slices/auth.js";
+
+import { Navbar, Footer } from "../components/routes/index.js";
 
 export const Router = () => {
+  const dispatch = useDispatch();
+  const isAuth = useSelector(selectIsAuth);
+
+  useEffect(() => {
+    dispatch(fetchAuthMe());
+  }, [dispatch]);
+
   return (
     <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/user">
+          <Route path="account" element={isAuth ? <Account /> : <Login />} />
+          <Route path="basket" />
+        </Route>
         <Route path="/sneakers">
           <Route path="men" element={<Category />} />
           <Route path="women" element={<Category />} />
           <Route path="kids" element={<Category />} />
           <Route path=":id" element={<Sneaker />} />
           <Route path="favorites" element={<Favorites />} />
-          <Route path="account" />
-          <Route path="basket" />
         </Route>
-        <Route path="/auth">
-          <Route path="login" element={<Login />} />
-          <Route path="registartion" element={<Registration />} />
-        </Route>
+        <Route path="login" element={<Login />} />
+        <Route path="registartion" element={<Registration />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
