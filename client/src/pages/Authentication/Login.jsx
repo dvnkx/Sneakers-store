@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAuth, selectIsAuth } from "../../redux/slices/auth";
 
 import { AuthInput } from "../../components/forms";
-import { CustomLink } from "../../components/ui/index";
+import { CustomLink, Button } from "../../components/ui/index";
 
 import "./styles.css";
 
@@ -50,22 +50,20 @@ export const Login = () => {
           error={Boolean(errors.email?.message)}
           errorMessage={errors.email?.message}
           type="email"
-          label={"EMAIL"}
           placeholder={"EMAIL"}
         />
         <AuthInput
           {...register("password", { required: "Enter password" })}
           error={Boolean(errors.password?.message)}
           errorMessage={errors.password?.message}
-          type="text"
-          label={"PASSWORD"}
+          type="password"
           placeholder={"PASSWORD"}
         />
-        <button disabled={!isValid} type="submit">
+        <Button disabled={!isValid} type={"submit"}>
           Submit
-        </button>
+        </Button>
+        <CustomLink to={"/registartion"}>Registartion </CustomLink>
       </form>
-      <CustomLink to={"/registartion"}>Registartion</CustomLink>
     </div>
   );
 };

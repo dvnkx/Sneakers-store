@@ -1,60 +1,22 @@
 @import "../../../Styles/global-variables";
 
-.form__group {
-  position: relative;
-  margin-left: 20%;
-  padding: 15px 0 0;
-  margin-top: 10px;
-  width: 40%;
+.auth-input {
+  width: 30vw;
+  height: 40px;
+  border-radius: 3px;
+  border: 2px solid $primary;
+  background-color: $white;
+  box-shadow: 4px 4px #007f5c;
+  font-size: 15px;
+  font-weight: 600;
+  color: $blue;
+  padding: 5px 10px;
+  outline: none;
+  margin: 1em;
+}
 
-  .form__field {
-    width: 100%;
-    border: 0;
-    border-bottom: 2px solid $gray;
-    outline: 0;
-    font-size: 1.3rem;
-    color: $primary;
-    padding: 7px 0;
-    background: transparent;
-    transition: border-color 0.2s;
-
-    &::placeholder {
-      color: transparent;
-    }
-
-    &:placeholder-shown ~ .form__label {
-      font-size: 1.3rem;
-      cursor: text;
-      top: 20px;
-    }
-  }
-
-  .form__label {
-    position: absolute;
-    top: 0;
-    display: block;
-    transition: 0.3s;
-    font-size: 1rem;
-    color: $gray;
-  }
-
-  .form__field:focus {
-    ~ .form__label {
-      top: 0;
-      display: block;
-      transition: 0.3s;
-      font-size: 1rem;
-      color: $primary;
-      font-weight: 700;
-    }
-
-    font-weight: 700;
-    border-width: 3px;
-    border-image: linear-gradient(to right, $gray, $white);
-    border-image-slice: 1;
-  }
-
-  p {
-    color: $error;
-  }
+.message {
+  width: 300px;
+  color: $error;
+  text-align: left;
 }

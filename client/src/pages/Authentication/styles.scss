@@ -1,2 +1,41 @@
+@import "../../Styles/global-variables";
+
 .login-container {
+  height: 93vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../assets/visions/sneakers-background.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 70%;
+    background-color: rgb(220, 220, 220, 0.6);
+    border: 2px solid $primary;
+    button {
+      margin-top: 3vh;
+      cursor: pointer;
+    }
+
+    a {
+      padding: 0.2em;
+      text-align: center;
+      width: 30%;
+      margin-top: 3vh;
+      color: $primary;
+      border: 2px solid $primary;
+
+      &::after {
+        content: "\2192";
+      }
+    }
+  }
 }

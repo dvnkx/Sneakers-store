@@ -29,7 +29,8 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      {window.location.pathname !== "/login" || ("/registration" && <Navbar />)}
+      <Navbar />
+
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/user">
@@ -47,7 +48,7 @@ const App = () => {
         <Route path="registartion" element={<Registration />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {window.location.pathname !== "/login" || ("/registration" && <Footer />)}
+      <Footer />
     </BrowserRouter>
   );
 };
