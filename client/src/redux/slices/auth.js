@@ -32,43 +32,44 @@ const authSlice = createSlice({
       state.data = null;
     },
   },
-  extraReducers: {
-    [fetchAuth.pending]: (state) => {
-      state.data = null;
-      state.status = "loading";
-    },
-    [fetchAuth.fulfilled]: (state, action) => {
-      state.data = action.payload;
-      state.status = "loaded";
-    },
-    [fetchAuth.rejected]: (state) => {
-      state.data = null;
-      state.status = "error";
-    },
-    [fetchRegistr.pending]: (state) => {
-      state.data = null;
-      state.status = "loading";
-    },
-    [fetchRegistr.fulfilled]: (state, action) => {
-      state.data = action.payload;
-      state.status = "loaded";
-    },
-    [fetchRegistr.rejected]: (state) => {
-      state.data = null;
-      state.status = "error";
-    },
-    [fetchAuthMe.pending]: (state) => {
-      state.data = null;
-      state.status = "loading";
-    },
-    [fetchAuthMe.fulfilled]: (state, action) => {
-      state.data = action.payload;
-      state.status = "loaded";
-    },
-    [fetchAuthMe.rejected]: (state) => {
-      state.data = null;
-      state.status = "error";
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchAuth.pending, (state) => {
+        state.data = null;
+        state.status = "loading";
+      })
+      .addCase(fetchAuth.fulfilled, (state, action) => {
+        state.data = action.payload;
+        state.status = "loaded";
+      })
+      .addCase(fetchAuth.rejected, (state) => {
+        state.data = null;
+        state.status = "error";
+      })
+      .addCase(fetchRegistr.pending, (state) => {
+        state.data = null;
+        state.status = "loading";
+      })
+      .addCase(fetchRegistr.fulfilled, (state, action) => {
+        state.data = action.payload;
+        state.status = "loaded";
+      })
+      .addCase(fetchRegistr.rejected, (state) => {
+        state.data = null;
+        state.status = "error";
+      })
+      .addCase(fetchAuthMe.pending, (state) => {
+        state.data = null;
+        state.status = "loading";
+      })
+      .addCase(fetchAuthMe.fulfilled, (state, action) => {
+        state.data = action.payload;
+        state.status = "loaded";
+      })
+      .addCase(fetchAuthMe.rejected, (state) => {
+        state.data = null;
+        state.status = "error";
+      });
   },
 });
 

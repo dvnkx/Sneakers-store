@@ -20,19 +20,20 @@ const cardDataSlice = createSlice({
   name: "card",
   initialState,
   reducers: {},
-  extraReducers: {
-    [fetchCardData.pending]: (state) => {
-      state.card.data = [];
-      state.card.status = "loading";
-    },
-    [fetchCardData.fulfilled]: (state, action) => {
-      state.card.data = action.payload;
-      state.card.status = "loaded";
-    },
-    [fetchCardData.rejected]: (state) => {
-      state.card.data = [];
-      state.card.status = "error";
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchCardData.pending, (state) => {
+        state.card.data = [];
+        state.card.status = "loading";
+      })
+      .addCase(fetchCardData.fulfilled, (state, action) => {
+        state.card.data = action.payload;
+        state.card.status = "loaded";
+      })
+      .addCase(fetchCardData.rejected, (state) => {
+        state.card.data = [];
+        state.card.status = "error";
+      });
   },
 });
 

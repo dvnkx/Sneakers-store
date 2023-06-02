@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
@@ -11,23 +11,25 @@ import {
   Favorites,
   Sneaker,
   Account,
-} from "../pages/index.js";
+} from "./pages/index.js";
 
-import { fetchAuthMe, selectIsAuth } from "../redux/slices/auth.js";
+import { fetchAuthMe, selectIsAuth } from "./redux/slices/auth.js";
 
-import { Navbar, Footer } from "../components/routes/index.js";
+import { Navbar, Footer } from "./components/routes/index.js";
 
-export const Router = () => {
+const App = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
+
+  console.log(window.location);
 
   useEffect(() => {
     dispatch(fetchAuthMe());
   }, [dispatch]);
 
   return (
-    <>
-      <Navbar />
+    <BrowserRouter>
+      {window.location.pathname !== "/login" || ("/registration" && <Navbar />)}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/user">
@@ -45,7 +47,9 @@ export const Router = () => {
         <Route path="registartion" element={<Registration />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
-    </>
+      {window.location.pathname !== "/login" || ("/registration" && <Footer />)}
+    </BrowserRouter>
   );
 };
+
+export default App;

@@ -2,6 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/slices/auth";
 
+import "./styles.css";
+
 const Account = () => {
   const dispatch = useDispatch();
 
@@ -13,7 +15,7 @@ const Account = () => {
   };
 
   return (
-    <div>
+    <div className="account-container">
       <button onClick={onClickLogout}>Logout</button>
     </div>
   );
