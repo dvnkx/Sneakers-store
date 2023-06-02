@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAuth, selectIsAuth } from "../../redux/slices/auth";
 
 import { AuthInput } from "../../components/forms";
+import { CustomLink } from "../../components/ui/index";
+
+import "./styles.css";
 
 export const Login = () => {
   const isAuth = useSelector(selectIsAuth);
@@ -14,7 +17,7 @@ export const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({
     defaultValues: {
       email: "",
@@ -58,8 +61,11 @@ export const Login = () => {
           label={"PASSWORD"}
           placeholder={"PASSWORD"}
         />
-        <button type="submit">Submit</button>
+        <button disabled={!isValid} type="submit">
+          Submit
+        </button>
       </form>
+      <CustomLink to={"/registartion"}>Registartion</CustomLink>
     </div>
   );
 };

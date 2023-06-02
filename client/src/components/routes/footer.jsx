@@ -1,5 +1,5 @@
 import React from "react";
-import CustomLink from "../ui/CustomLink";
+import { CustomLink } from "../ui/index.js";
 
 import "./styles.css";
 import { Input } from "../ui";

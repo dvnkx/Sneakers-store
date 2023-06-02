@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 
-import CustomLink from "../../CustomLink";
+import { CustomLink } from "../../index";
 
 const Card = ({ card }) => {
   return (

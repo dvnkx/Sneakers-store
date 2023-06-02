@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { selectIsAuth } from "../../redux/slices/auth.js";
 
 import { basket, account, logo } from "../../assets/index.js";
-import CustomLink from "../ui/CustomLink.jsx";
+import { CustomLink } from "../ui/index.js";
 
 import "./styles.css";
 
