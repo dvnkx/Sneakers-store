@@ -24,7 +24,11 @@ export const createCardValidation = [
   body("cost", "Wrong cost format").isNumeric(),
   body("color", "Wrong color name").isString(),
   body("materials", "Wrong materials name").isString(),
-  body("imageUrl", "Wrong url reference").isString(),
+  body("fastener", "Wrong fastener").isString(),
+  body("soleHeight", "Wrong format").isNumeric(),
+  body("generalHeight", "Wrong format").isNumeric(),
+  body("technology", "Wrong technology").isString().optional(),
+  body("images", "Wrong url reference").isArray(),
   body("sex", "Wrong sex")
     .isString()
     .contains("men" || "women" || "unisex"),

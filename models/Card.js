@@ -23,7 +23,20 @@ const CardSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    imageUrl: { type: String, required: true },
+    fastener: {
+      type: String,
+      required: true,
+    },
+    soleHeight: {
+      type: Number,
+      required: true,
+    },
+    generalHeight: {
+      type: Number,
+      required: true,
+    },
+    technology: String,
+    images: { type: Array, required: true },
     sex: {
       type: String,
       required: true,
