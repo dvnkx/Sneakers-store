@@ -16,7 +16,7 @@ export const registrSchema = yup.object().shape({
   fullName: yup
     .string()
     .required("No name provided")
-    .min(2, "Password is too short - should be 2 chars minimum."),
+    .min(2, "Name is too short - should be 2 chars minimum."),
   email: yup
     .string()
     .email("Must be a valid email")
