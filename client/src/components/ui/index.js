@@ -1,5 +1,5 @@
 export { default as ImagesModel } from "./CardsComponents/ImagesModel.jsx";
-export { default as Card } from "./CardsComponents/Card/Card.jsx";
+export { default as Card } from "./CardsComponents/card/card.jsx";
 export { default as CardInfo } from "./CardsComponents/CardInfo.jsx";
 export { default as CardSkeleton } from "./CardsComponents/CardSkeleton.jsx";
 export { default as CustomLink } from "./CustomLink.jsx";
