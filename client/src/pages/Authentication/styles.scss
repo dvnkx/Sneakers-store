@@ -1,6 +1,6 @@
 @import "../../Styles/global-variables";
 
-.login-container {
+@mixin auth-container {
   height: 93vh;
   width: 100vw;
   display: flex;
@@ -20,6 +20,7 @@
     height: 70%;
     background-color: rgb(220, 220, 220, 0.6);
     border: 2px solid $primary;
+
     button {
       margin-top: 3vh;
       cursor: pointer;
@@ -35,6 +36,37 @@
 
       &::after {
         content: "\2192";
+      }
+
+      &:active {
+        transform: translateX(2px);
+        transition: 100ms ease-in-out;
+      }
+    }
+  }
+}
+
+.login-container {
+  @include auth-container();
+}
+
+.reg-container {
+  @include auth-container();
+  background-image: url("../../assets/visions/sneakers-background2.jpeg");
+
+  form {
+    a {
+      &::before {
+        content: "\2190";
+      }
+
+      &::after {
+        content: "";
+      }
+
+      &:active {
+        transform: translateX(-2px);
+        transition: 100ms ease-in-out;
       }
     }
   }

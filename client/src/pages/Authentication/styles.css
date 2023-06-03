@@ -50,3 +50,86 @@
 .login-container form a::after {
   content: "→";
 }
+.login-container form a:active {
+  -webkit-transform: translateX(2px);
+      -ms-transform: translateX(2px);
+          transform: translateX(2px);
+  -webkit-transition: 100ms ease-in-out;
+  -o-transition: 100ms ease-in-out;
+  transition: 100ms ease-in-out;
+}
+
+.reg-container {
+  height: 93vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url("../../assets/visions/sneakers-background.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../assets/visions/sneakers-background2.jpeg");
+}
+.reg-container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+  height: 70%;
+  background-color: rgba(220, 220, 220, 0.6);
+  border: 2px solid #0b0909;
+}
+.reg-container form button {
+  margin-top: 3vh;
+  cursor: pointer;
+}
+.reg-container form a {
+  padding: 0.2em;
+  text-align: center;
+  width: 30%;
+  margin-top: 3vh;
+  color: #0b0909;
+  border: 2px solid #0b0909;
+}
+.reg-container form a::after {
+  content: "→";
+}
+.reg-container form a:active {
+  -webkit-transform: translateX(2px);
+      -ms-transform: translateX(2px);
+          transform: translateX(2px);
+  -webkit-transition: 100ms ease-in-out;
+  -o-transition: 100ms ease-in-out;
+  transition: 100ms ease-in-out;
+}
+.reg-container form a::before {
+  content: "←";
+}
+.reg-container form a::after {
+  content: "";
+}
+.reg-container form a:active {
+  -webkit-transform: translateX(-2px);
+      -ms-transform: translateX(-2px);
+          transform: translateX(-2px);
+  -webkit-transition: 100ms ease-in-out;
+  -o-transition: 100ms ease-in-out;
+  transition: 100ms ease-in-out;
+}

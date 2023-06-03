@@ -2,10 +2,14 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { Navigate } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import { selectIsAuth, fetchRegistr } from "../../redux/slices/auth";
 
 import { AuthInput } from "../../components/forms/index";
+import { Button, CustomLink } from "../../components/ui";
+
+import { registrSchema } from "../../schemas";
 
 export const Registartion = () => {
   const isAuth = useSelector(selectIsAuth);
@@ -17,10 +21,12 @@ export const Registartion = () => {
     formState: { errors, isValid },
   } = useForm({
     defaultValues: {
+      avatarUrl: "",
       fullName: "",
       email: "",
       password: "",
     },
+    resolver: yupResolver(registrSchema),
     mode: "onChange",
   });
 
@@ -44,32 +50,37 @@ export const Registartion = () => {
     <div className="reg-container">
       <form onSubmit={handleSubmit(onSubmit)}>
         <AuthInput
-          {...register("fullName", { required: "Enter full name" })}
+          {...register("avatarUrl")}
+          error={Boolean(errors.avatarUrl?.message)}
+          errorMessage={errors.avatarUrl?.message}
+          type="text"
+          placeholder={"URL (optional)"}
+        />
+        <AuthInput
+          {...register("fullName")}
           error={Boolean(errors.fullName?.message)}
           errorMessage={errors.fullName?.message}
-          label={"FULL NAME"}
           type="text"
           placeholder={"FULL NAME"}
         />
         <AuthInput
-          {...register("email", { required: "Enter email" })}
+          {...register("email")}
           error={Boolean(errors.email?.message)}
           errorMessage={errors.email?.message}
-          label={"EMAIL"}
           type="email"
           placeholder={"EMAIL"}
         />
         <AuthInput
-          {...register("password", { required: "Enter password" })}
+          {...register("password")}
           error={Boolean(errors.password?.message)}
           errorMessage={errors.password?.message}
-          label={"PASSWORD"}
           type="password"
           placeholder={"PASSWORD"}
         />
-        <button disabled={!isValid} type="submit">
+        <Button disabled={!isValid} type="submit">
           Submit
-        </button>
+        </Button>
+        <CustomLink to={"/login"}>Back </CustomLink>
       </form>
     </div>
   );

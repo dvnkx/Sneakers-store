@@ -1,12 +1,15 @@
 import React from "react";
-
 import { useForm } from "react-hook-form";
 import { Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { yupResolver } from "@hookform/resolvers/yup";
+
 import { fetchAuth, selectIsAuth } from "../../redux/slices/auth";
 
 import { AuthInput } from "../../components/forms";
 import { CustomLink, Button } from "../../components/ui/index";
+
+import { loginSchema } from "../../schemas";
 
 import "./styles.css";
 
@@ -23,6 +26,7 @@ export const Login = () => {
       email: "",
       password: "",
     },
+    resolver: yupResolver(loginSchema),
     mode: "onChange",
   });
 
@@ -46,14 +50,14 @@ export const Login = () => {
     <div className="login-container">
       <form onSubmit={handleSubmit(onSubmit)}>
         <AuthInput
-          {...register("email", { required: "Enter email" })}
+          {...register("email")}
           error={Boolean(errors.email?.message)}
           errorMessage={errors.email?.message}
           type="email"
           placeholder={"EMAIL"}
         />
         <AuthInput
-          {...register("password", { required: "Enter password" })}
+          {...register("password")}
           error={Boolean(errors.password?.message)}
           errorMessage={errors.password?.message}
           type="password"
