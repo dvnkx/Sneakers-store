@@ -2,7 +2,7 @@ import React from "react";
 import { CustomLink } from "../ui/index.js";
 
 import "./styles.css";
-import { Input } from "../ui";
+import { Input } from "../ui/index.js";
 
 const Footer = () => {
   return (
