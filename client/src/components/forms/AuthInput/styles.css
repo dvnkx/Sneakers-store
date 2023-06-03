@@ -1,0 +1,21 @@
+.auth-input {
+  width: 30vw;
+  height: 40px;
+  border-radius: 3px;
+  border: 2px solid #0b0909;
+  background-color: #d6d6d6;
+  -webkit-box-shadow: 4px 4px #007f5c;
+          box-shadow: 4px 4px #007f5c;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f4a6f;
+  padding: 5px 10px;
+  outline: none;
+  margin: 1em;
+}
+
+.message {
+  width: 30vw;
+  color: #ff3333;
+  text-align: left;
+}

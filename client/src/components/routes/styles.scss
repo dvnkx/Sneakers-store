@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap");
+@import "../../Styles/global-variables.scss";
+* {
+  text-decoration: none;
+}
+
+nav {
+  margin: 0;
+  background-color: $white;
+  width: 100%;
+  height: 80px;
+  border-bottom: 0.75px solid $gray;
+  display: flex;
+
+  a {
+    width: 17.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+
+    &.active p::before {
+      width: 70%;
+      transition: all 200ms ease-in-out;
+    }
+
+    &:first-of-type {
+      width: 20%;
+      border-right: 0.75px solid $gray;
+    }
+
+    p {
+      font-size: 20px;
+      color: $primary;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        content: "";
+        width: 0%;
+        height: 1px;
+        border-bottom: 2px solid $primary;
+        bottom: 3px;
+      }
+    }
+  }
+
+  .icons {
+    width: 5%;
+    border-left: 0.75px solid $gray;
+  }
+
+  .icons2 {
+    width: 5%;
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  height: auto;
+  color: $primary;
+
+  h1 {
+    text-align: center;
+    width: 100%;
+    height: 160px;
+    padding-bottom: 12px;
+    font-size: 100px;
+    background-color: $primary;
+    color: $white;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    grid-template-rows: repeat(5, 30px);
+    margin-bottom: 35px;
+    margin-left: 45px;
+    padding-left: 40px;
+    padding-top: 40px;
+    width: 60%;
+    height: 45%;
+    gap: 1em;
+    text-transform: uppercase;
+
+    a {
+      font-family: "Kanit", sans-serif;
+      font-weight: 200;
+      color: $primary;
+      font-size: 20px;
+    }
+  }
+
+  .join {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 172px;
+    right: 0px;
+    width: 40%;
+    height: 45%;
+    text-transform: uppercase;
+
+    h2 {
+      padding-top: 5%;
+      padding-left: 20%;
+      font-size: 2.5em;
+    }
+  }
+}
+
+.bottom {
+  width: 100%;
+  height: auto;
+
+  div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+
+    span {
+      width: 90%;
+      height: auto;
+      border-top: 2px solid $primary;
+    }
+  }
+
+  .links {
+    display: flex;
+    justify-content: start;
+
+    h3 {
+      font-size: 20px;
+      margin-left: 5%;
+    }
+
+    div {
+      margin-left: 48.5%;
+
+      a {
+        margin: 0 1em;
+        color: $primary;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+button {
+  cursor: pointer;
+  width: 26vw;
+  height: 45px;
+  border-radius: 4px;
+  border: 2px solid #0b0909;
+  background-color: #4b94f2;
+}
+button:active {
+  -webkit-transform: translateY(2px);
+      -ms-transform: translateY(2px);
+          transform: translateY(2px);
+  -webkit-transition: 100ms ease-in-out;
+  -o-transition: 100ms ease-in-out;
+  transition: 100ms ease-in-out;
+}
