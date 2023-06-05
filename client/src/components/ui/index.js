@@ -7,4 +7,5 @@ export { default as Spinner } from "./Spinner/Spinner.jsx";
 export { default as BackLine } from "./BackLine.jsx";
 export { default as ImgIntro } from "./ImgIntro.jsx";
 export { default as Input } from "./Input/Input.jsx";
-export { default as Button } from "./Button/Button.jsx";
+export { default as SubmitButton } from "./SubmitButton/SubmitButton.jsx";
+export { default as InfoBlock } from "./AccountComponents/InfoBlock.jsx";

@@ -1,3 +1,105 @@
+@import "../../Styles/global-variables";
+@import "../../Styles/mixins";
+
 .account-container {
-  height: 1000px;
+  width: 100vw;
+  height: 140vh;
+  margin: 5% 3%;
+  display: flex;
+
+  .middle {
+    .info-block {
+      @include account-block();
+
+      .data {
+        position: relative;
+        @include account-data();
+
+        ul {
+          list-style: none;
+        }
+
+        .info {
+          @include icon();
+
+          img {
+            @include pencil();
+          }
+        }
+      }
+
+      .new-address {
+        margin-top: 10px;
+        width: 25vw;
+        height: 50px;
+        background-color: $primary;
+        color: $white;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #2b2b2b;
+          transition: 300ms ease-in-out;
+        }
+
+        &:active {
+          transform: translateY(3px);
+          transition: 100ms ease-in-out;
+        }
+      }
+    }
+
+    .password-info {
+      .password {
+        @include account-data();
+        height: 2vh;
+      }
+    }
+  }
+
+  .right {
+    width: 40vw;
+    height: 100vh;
+
+    .info-block {
+      @include account-block();
+
+      .data {
+        position: relative;
+        @include account-data();
+
+        ul {
+          list-style: none;
+        }
+
+        .info {
+          @include icon();
+
+          img {
+            @include pencil();
+          }
+        }
+      }
+
+      .new-address {
+        margin-top: 10px;
+        width: 25vw;
+        height: 50px;
+        background-color: $primary;
+        color: $white;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #2b2b2b;
+          transition: 300ms ease-in-out;
+        }
+
+        &:active {
+          transform: translateY(3px);
+          transition: 100ms ease-in-out;
+        }
+      }
+    }
+  }
 }

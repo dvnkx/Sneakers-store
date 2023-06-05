@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { fetchAuth, selectIsAuth } from "../../redux/slices/auth";
 
 import { AuthInput } from "../../components/forms";
-import { CustomLink, Button } from "../../components/ui/index";
+import { CustomLink, SubmitButton } from "../../components/ui/index";
 
 import { loginSchema } from "../../schemas";
 
@@ -63,9 +63,9 @@ export const Login = () => {
           type="password"
           placeholder={"PASSWORD"}
         />
-        <Button disabled={!isValid} type={"submit"}>
+        <SubmitButton disabled={!isValid} type={"submit"}>
           Submit
-        </Button>
+        </SubmitButton>
         <CustomLink to={"/registartion"}>Registartion </CustomLink>
       </form>
     </div>

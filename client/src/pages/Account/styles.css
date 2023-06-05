@@ -1,3 +1,139 @@
 .account-container {
-  height: 1000px;
+  width: 100vw;
+  height: 140vh;
+  margin: 5% 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.account-container .middle .info-block {
+  width: 40vw;
+  margin: 0 0.5em;
+}
+.account-container .middle .info-block .data {
+  position: relative;
+  width: 90%;
+  border: 2px solid #44444c;
+  background-color: #d6d6d6;
+  padding: 25px;
+}
+.account-container .middle .info-block .data ul {
+  list-style: none;
+}
+.account-container .middle .info-block .data .info {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-left: 87%;
+  position: absolute;
+  border: 1px solid #0b0909;
+  cursor: pointer;
+  background-color: transparent;
+}
+.account-container .middle .info-block .data .info img {
+  width: 20px;
+  height: 20px;
+}
+.account-container .middle .info-block .new-address {
+  margin-top: 10px;
+  width: 25vw;
+  height: 50px;
+  background-color: #0b0909;
+  color: #d6d6d6;
+  border: none;
+  cursor: pointer;
+}
+.account-container .middle .info-block .new-address:hover {
+  background-color: #2b2b2b;
+  -webkit-transition: 300ms ease-in-out;
+  -o-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+}
+.account-container .middle .info-block .new-address:active {
+  -webkit-transform: translateY(3px);
+      -ms-transform: translateY(3px);
+          transform: translateY(3px);
+  -webkit-transition: 100ms ease-in-out;
+  -o-transition: 100ms ease-in-out;
+  transition: 100ms ease-in-out;
+}
+.account-container .middle .password-info .password {
+  width: 90%;
+  border: 2px solid #44444c;
+  background-color: #d6d6d6;
+  padding: 25px;
+  height: 2vh;
+}
+.account-container .right {
+  width: 40vw;
+  height: 100vh;
+}
+.account-container .right .info-block {
+  width: 40vw;
+  margin: 0 0.5em;
+}
+.account-container .right .info-block .data {
+  position: relative;
+  width: 90%;
+  border: 2px solid #44444c;
+  background-color: #d6d6d6;
+  padding: 25px;
+}
+.account-container .right .info-block .data ul {
+  list-style: none;
+}
+.account-container .right .info-block .data .info {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-left: 87%;
+  position: absolute;
+  border: 1px solid #0b0909;
+  cursor: pointer;
+  background-color: transparent;
+}
+.account-container .right .info-block .data .info img {
+  width: 20px;
+  height: 20px;
+}
+.account-container .right .info-block .new-address {
+  margin-top: 10px;
+  width: 25vw;
+  height: 50px;
+  background-color: #0b0909;
+  color: #d6d6d6;
+  border: none;
+  cursor: pointer;
+}
+.account-container .right .info-block .new-address:hover {
+  background-color: #2b2b2b;
+  -webkit-transition: 300ms ease-in-out;
+  -o-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+}
+.account-container .right .info-block .new-address:active {
+  -webkit-transform: translateY(3px);
+      -ms-transform: translateY(3px);
+          transform: translateY(3px);
+  -webkit-transition: 100ms ease-in-out;
+  -o-transition: 100ms ease-in-out;
+  transition: 100ms ease-in-out;
 }

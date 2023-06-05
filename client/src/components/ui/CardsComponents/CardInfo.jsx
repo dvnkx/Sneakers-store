@@ -8,7 +8,7 @@ import {
   removeFromFavorites,
 } from "../../../redux/slices/favorites";
 
-import { heart, filledHeart } from "../../../assets/index";
+import { heart, filled_heart } from "../../../assets/index";
 
 const CardInfo = ({ brand, model, cost, description, materials }) => {
   const { id } = useParams();
@@ -34,7 +34,10 @@ const CardInfo = ({ brand, model, cost, description, materials }) => {
         <h1>{cost}</h1>
         <h2>$</h2>
         <button className="heart" onClick={toggleHeart}>
-          <img alt="heart" src={favorites.includes(id) ? filledHeart : heart} />
+          <img
+            alt="heart"
+            src={favorites.includes(id) ? filled_heart : heart}
+          />
         </button>
         <button className="buy">
           <p>Buy</p>

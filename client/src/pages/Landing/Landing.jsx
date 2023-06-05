@@ -3,10 +3,10 @@ import "./styles.css";
 
 import { ImgIntro } from "../../components/ui/index";
 import {
-  adidaslogo,
-  nblogo,
-  nikelogo,
-  yeezylogo,
+  adidas_logo,
+  nb_logo,
+  nike_logo,
+  yeezy_logo,
   background,
   example,
 } from "../../assets/index.js";
@@ -23,7 +23,7 @@ const Landing = () => {
             src={
               "https://img.modivo.cloud/zoomapp(1/d/c/7/1dc7fa2a855f0aff675f66b350886a7196dbcaba_01_0000301874157_bs.jpg,webp)/new-balance-snikerci-m2002rea-golubii.webp"
             }
-            logo={nblogo}
+            logo={nb_logo}
           />
           <ImgIntro
             alt={"nike"}
@@ -31,7 +31,7 @@ const Landing = () => {
             src={
               "https://img.modivo.cloud/product(4/4/0/6/4406284951c301b5e1d1289d6ba16a49406b1061_0000201641316_03_ai,webp)/nike-vzuttia-air-jordan-1-mid-gs-554725-124-kolorovii.webp"
             }
-            logo={nikelogo}
+            logo={nike_logo}
           />
           <ImgIntro
             alt={"adidas"}
@@ -39,7 +39,7 @@ const Landing = () => {
             src={
               "https://img.modivo.cloud/zoomapp(b/6/b/f/b6bfe624952001b52cb5fd7d59e10a47f273e612_0000209024753_08_ki.jpg,webp)/adidas-vzuttia-zx-700-hd-cf-c-gy3296-bilii.webp"
             }
-            logo={adidaslogo}
+            logo={adidas_logo}
           />
           <ImgIntro
             alt={"yeezy"}
@@ -47,7 +47,7 @@ const Landing = () => {
             src={
               "https://werare.com.ua/image/cache/catalog/i/ek/gp/7d857fa92767740a89cccf02ea985f9c-890x1000.jpg"
             }
-            logo={yeezylogo}
+            logo={yeezy_logo}
           />
         </div>
         <p className="text-intro">What are we talking about?</p>
