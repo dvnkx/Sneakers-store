@@ -11,6 +11,7 @@ import {
   Favorites,
   Sneaker,
   Account,
+  Orders,
 } from "./pages/index.js";
 
 import { fetchAuthMe, selectIsAuth } from "./redux/slices/auth.js";
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/user">
           {isAuth && <Route path="account" element={<Account />} />}
           <Route path="basket" />
+          <Route path="orders" element={<Orders />} />
         </Route>
         <Route path="/sneakers">
           <Route path="men" element={<Category />} />

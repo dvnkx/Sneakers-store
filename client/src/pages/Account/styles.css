@@ -1,6 +1,6 @@
 .account-container {
   width: 100vw;
-  height: 140vh;
+  height: 130vh;
   margin: 5% 3%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -136,4 +136,34 @@
   -webkit-transition: 100ms ease-in-out;
   -o-transition: 100ms ease-in-out;
   transition: 100ms ease-in-out;
+}
+
+.orders-container {
+  width: 100vw;
+  height: 130vh;
+  margin: 5% 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 53vh;
+}
+.orders-container .orders-block {
+  width: 70vw;
+  margin-left: 5vw;
+}
+.orders-container .orders-block .orders {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50vw;
+  height: 10vh;
+  border: 2px solid #0b0909;
+  background-color: #d6d6d6;
+}
+.orders-container .orders-block .orders ul {
+  list-style: none;
+  margin: 0 4%;
 }

@@ -4,7 +4,6 @@ import "./styles.css";
 
 import { InfoBlock } from "../../components/ui/index";
 import { SideNav } from "../../components/routes/index";
-
 import {
   shipStyles,
   shippingStyles,

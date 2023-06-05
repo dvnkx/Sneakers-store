@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
@@ -36,11 +36,11 @@ const SideNav = ({ avatar }) => {
         <div className="avatar">
           <img alt="avatar" className="image" src={avatar} />
         </div>
-        <CustomLink className="account">
+        <CustomLink className="account" to={"/user/account"}>
           <img alt="user" src={href !== "Account" ? account : account_active} />
           My Account
         </CustomLink>
-        <CustomLink className="orders">
+        <CustomLink className="orders" to={"/user/orders"}>
           <img alt="ord" src={href !== "Orders" ? sneaker : sneaker_active} />
           My Orders
         </CustomLink>

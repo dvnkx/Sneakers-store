@@ -46,6 +46,13 @@
   }
 }
 
+@mixin account-container {
+  width: 100vw;
+  height: 130vh;
+  margin: 5% 3%;
+  display: flex;
+}
+
 @mixin account-block {
   width: 40vw;
   margin: 0 0.5em;
