@@ -7,6 +7,8 @@ export { default as sneaker_active } from "./icons/sneaker-active.png";
 export { default as pencil } from "./icons/pencil.png";
 export { default as exit } from "./icons/logout.png";
 export { default as heart } from "./icons/heart.png";
+export { default as show_password } from "./icons/show-password.png";
+export { default as hide_password } from "./icons/hide-password.png";
 export { default as filled_heart } from "./icons/filled-heart.png";
 export { default as background } from "./visions/background.jpg";
 export { default as example } from "./visions/example.png";

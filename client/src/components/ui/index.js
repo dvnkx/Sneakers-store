@@ -8,4 +8,9 @@ export { default as BackLine } from "./BackLine.jsx";
 export { default as ImgIntro } from "./ImgIntro.jsx";
 export { default as Input } from "./Input/Input.jsx";
 export { default as SubmitButton } from "./SubmitButton/SubmitButton.jsx";
-export { default as InfoBlock } from "./AccountComponents/InfoBlock.jsx";
+export { default as AccountBlock } from "./AccountComponents/AccountBlock.jsx";
+export { default as UserPasswordBlock } from "./AccountComponents/UserPasswordBlock.jsx";
+export { default as UserDataBlock } from "./AccountComponents/UserDataBlock.jsx";
+export { default as UserAdressBlock } from "./AccountComponents/UserAdressBlock.jsx";
+
+export { default as Buttons } from "./Buttons/Buttons.jsx";

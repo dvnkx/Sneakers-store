@@ -1,0 +1,111 @@
+@import "../../../Styles/global-variables";
+@import "../../../Styles/mixins";
+
+.info-block {
+  width: 100%;
+
+  .data {
+    position: relative;
+    width: 80%;
+    border: 2px solid $secondary;
+    background-color: #d6d6d6;
+    padding: 25px;
+
+    ul {
+      list-style: none;
+    }
+
+    .info {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      margin-left: 84%;
+      position: absolute;
+      border: 1px solid $primary;
+      cursor: pointer;
+      background-color: transparent;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+.user-data-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  padding: 25px;
+  height: 41vh;
+  border: 2px solid $gray;
+  background-color: $white;
+}
+
+.address-data-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 77.87%;
+  height: 60%;
+  border: 2px solid $gray;
+  background-color: $white;
+  margin-top: 10px;
+  padding: 3% 5% 0 5%;
+
+  .buttons {
+    margin-left: -6.5%;
+  }
+
+  .react-tel-input {
+    border-radius: 0px;
+
+    .flag-dropdown {
+      border: 1px solid $gray;
+      border-radius: 0px;
+      background-color: $white;
+
+      .selected-flag {
+        background-color: $white;
+      }
+
+      &::open {
+        border-radius: 0px;
+      }
+    }
+
+    input {
+      width: 72%;
+      height: 32px;
+      border: 1px solid $gray;
+      background-color: transparent;
+      border-radius: 0px;
+    }
+  }
+}
+
+.password-data-form {
+  margin-top: 10px;
+  border: 2px solid $gray;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 88%;
+  height: 27vh;
+  background-color: $white;
+
+  label {
+    margin-top: 2%;
+    margin-left: 7%;
+  }
+
+  .buttons {
+    margin: 3% 0 0 -2.4%;
+    padding-bottom: 2%;
+  }
+}

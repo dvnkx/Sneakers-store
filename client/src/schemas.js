@@ -37,3 +37,12 @@ export const loginSchema = yup.object().shape({
     .required("No password provided")
     .min(8, "Password is too short - should be 8 chars minimum."),
 });
+
+export const editDataSchema = yup.object().shape({
+  fullName: yup
+    .string()
+    .optional()
+    .min(2, "Name is too short - should be 2 chars minimum."),
+  email: yup.string().email("Must be a valid email").optional(),
+  birthday: yup.date().optional(),
+});

@@ -5,114 +5,28 @@
   @include account-container();
 
   .middle {
-    .info-block {
-      @include account-block();
-
-      .data {
-        position: relative;
-        @include account-data();
-
-        ul {
-          list-style: none;
-        }
-
-        .info {
-          @include icon();
-
-          img {
-            @include pencil();
-          }
-        }
-      }
-
-      .new-address {
-        margin-top: 10px;
-        width: 25vw;
-        height: 50px;
-        background-color: $primary;
-        color: $white;
-        border: none;
-        cursor: pointer;
-
-        &:hover {
-          background-color: $silver;
-          transition: 300ms ease-in-out;
-        }
-
-        &:active {
-          transform: translateY(3px);
-          transition: 100ms ease-in-out;
-        }
-      }
-    }
-
-    .password-info {
-      .password {
-        @include account-data();
-        height: 2vh;
-      }
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    min-height: 130%;
   }
 
   .right {
-    width: 40vw;
     height: 100vh;
-
-    .info-block {
-      @include account-block();
-
-      .data {
-        position: relative;
-        @include account-data();
-
-        ul {
-          list-style: none;
-        }
-
-        .info {
-          @include icon();
-
-          img {
-            @include pencil();
-          }
-        }
-      }
-
-      .new-address {
-        margin-top: 10px;
-        width: 25vw;
-        height: 50px;
-        background-color: $primary;
-        color: $white;
-        border: none;
-        cursor: pointer;
-
-        &:hover {
-          background-color: $silver;
-          transition: 300ms ease-in-out;
-        }
-
-        &:active {
-          transform: translateY(3px);
-          transition: 100ms ease-in-out;
-        }
-      }
-    }
   }
 }
 
 .orders-container {
   @include account-container();
-  height: 53vh;
+  min-height: 65vh;
 
   .orders-block {
-    width: 70vw;
-    margin-left: 5vw;
+    width: 70%;
 
     .orders {
       display: flex;
       align-items: center;
-
       width: 50vw;
       height: 10vh;
       border: 2px solid $primary;

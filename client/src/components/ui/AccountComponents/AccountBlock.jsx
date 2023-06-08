@@ -2,7 +2,9 @@ import React from "react";
 
 import { pencil } from "../../../assets/index";
 
-const InfoBlock = ({ data, children, section, styles }) => {
+import "./styles.css";
+
+const AccountBlock = ({ data, children, section, styles, setVisible }) => {
   return (
     <div style={styles && { marginTop: styles.margin }} className="info-block">
       <h1>{section}</h1>
@@ -10,15 +12,15 @@ const InfoBlock = ({ data, children, section, styles }) => {
         style={styles && { height: styles.height, width: styles.width }}
         className="data"
       >
-        {styles && !styles.width && (
-          <button className="info">
+        {setVisible && (
+          <button onClick={setVisible} className="info">
             <img alt="pencil" src={pencil} />
           </button>
         )}
         {data && (
           <ul>
-            {data.map((d) => (
-              <li>{d}</li>
+            {data.map((d, i) => (
+              <li key={i}>{d}</li>
             ))}
           </ul>
         )}
@@ -28,4 +30,4 @@ const InfoBlock = ({ data, children, section, styles }) => {
   );
 };
 
-export default InfoBlock;
+export default AccountBlock;

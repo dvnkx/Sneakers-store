@@ -47,39 +47,8 @@
 }
 
 @mixin account-container {
-  width: 100vw;
-  height: 130vh;
-  margin: 5% 3%;
+  width: 95vw;
+  min-height: 135vh;
+  margin: 3% 0 10px 5%;
   display: flex;
-}
-
-@mixin account-block {
-  width: 40vw;
-  margin: 0 0.5em;
-}
-
-@mixin account-data {
-  width: 90%;
-  border: 2px solid $secondary;
-  background-color: #d6d6d6;
-  padding: 25px;
-}
-
-@mixin icon {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  margin-left: 87%;
-  position: absolute;
-  border: 1px solid $primary;
-  cursor: pointer;
-  background-color: transparent;
-}
-
-@mixin pencil {
-  width: 20px;
-  height: 20px;
 }

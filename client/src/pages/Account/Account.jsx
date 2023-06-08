@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { useSelector } from "react-redux";
 import "./styles.css";
 
-import { InfoBlock } from "../../components/ui/index";
+import { toggleAccountReducer } from "../../helpers/AccountReducer";
+
 import { SideNav } from "../../components/routes/index";
+
+import {
+  AccountBlock,
+  UserPasswordBlock,
+  UserDataBlock,
+  UserAdressBlock,
+} from "../../components/ui/index";
+
 import {
   shipStyles,
   shippingStyles,
@@ -14,6 +23,12 @@ import {
 } from "../../helpers/AccountData";
 
 const Account = () => {
+  const [state, dispatch] = useReducer(toggleAccountReducer, {
+    data: false,
+    address: false,
+    password: false,
+  });
+
   const { fullName, email, avatarUrl } = useSelector(
     (state) => state.auth.data
   );
@@ -25,31 +40,46 @@ const Account = () => {
     <div className="account-container">
       <SideNav avatar={avatarUrl} />
       <div className="middle">
-        <InfoBlock
-          styles={userDataStyles}
-          data={personalData}
-          section={"Presonal Data"}
-        />
-        <InfoBlock
-          section={"My shipping addresses"}
-          data={addressData}
-          styles={shippingStyles}
-        >
-          <button className="new-address">Add new address</button>
-        </InfoBlock>
-        <InfoBlock
-          section={"Change Password"}
-          data={passwordData}
-          styles={passwordStyles}
-        />
+        {!state.data ? (
+          <AccountBlock
+            setVisible={() => dispatch({ type: "data" })}
+            styles={userDataStyles}
+            data={personalData}
+            section={"Presonal Data"}
+          />
+        ) : (
+          <UserDataBlock Block setVisible={() => dispatch({ type: "data" })} />
+        )}
+        {!state.address ? (
+          <AccountBlock
+            setVisible={() => dispatch({ type: "address" })}
+            section={"My shipping addresses"}
+            data={addressData}
+            styles={shippingStyles}
+          ></AccountBlock>
+        ) : (
+          <UserAdressBlock setVisible={() => dispatch({ type: "address" })} />
+        )}
+        {!state.password ? (
+          <AccountBlock
+            setVisible={() => dispatch({ type: "password" })}
+            section={"Change Password"}
+            data={passwordData}
+            styles={passwordStyles}
+          />
+        ) : (
+          <UserPasswordBlock
+            setVisible={() => dispatch({ type: "password" })}
+          />
+        )}
       </div>
       <div className="right">
-        <InfoBlock
+        <AccountBlock
           data={shipData}
           styles={shipStyles}
           section={"Default Shipping"}
         />
-        <InfoBlock
+        <AccountBlock
           data={shipData}
           styles={shipStyles}
           section={"Default Shipping Method"}
