@@ -16,6 +16,18 @@ const UserSchema = new mongoose.Schema(
       required: true,
     },
     avatarUrl: String,
+    birthday: String,
+    address: {
+      lastname: String,
+      name: String,
+      surnme: String,
+      postIndex: Number,
+      region: String,
+      street: String,
+      city: String,
+      phoneNumber: String,
+      email: String,
+    },
   },
   {
     timestamps: true,

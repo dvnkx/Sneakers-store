@@ -109,3 +109,63 @@ export const getMe = async (req, res) => {
     });
   }
 };
+
+export const updateMe = async (req, res) => {
+  try {
+    const userId = req.params.id.replace(/:/, "");
+
+    await UserModel.updateOne(
+      {
+        _id: userId,
+      },
+      {
+        fullName: req.body.fullName,
+        email: req.body.email,
+        birthday: req.body.birthday,
+      }
+    );
+
+    res.json({
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to update profile",
+    });
+  }
+};
+
+export const addAddress = async (req, res) => {
+  try {
+    const userId = req.params.id.replace(/:/, "");
+
+    await UserModel.updateOne(
+      {
+        _id: userId,
+      },
+      {
+        address: {
+          lastname: req.body.lastname,
+          name: req.body.name,
+          surnme: req.body.surname,
+          postIndex: req.body.postIndex,
+          region: req.body.region,
+          street: req.body.street,
+          city: req.body.city,
+          phoneNumber: req.body.phoneNumber,
+          email: req.body.email,
+        },
+      }
+    );
+
+    res.json({
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to add address",
+    });
+  }
+};

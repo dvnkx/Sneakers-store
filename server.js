@@ -8,6 +8,7 @@ import {
   registerValidation,
   loginValidation,
   createCardValidation,
+  updateUserValidation,
 } from "./validations.js";
 
 import { handleValidationErrors, checkAuth } from "./utils/index.js";
@@ -54,6 +55,21 @@ app.post(
   handleValidationErrors,
   UserController.register
 );
+app.patch(
+  "/user/update:id",
+  checkAuth,
+  handleValidationErrors,
+  updateUserValidation,
+  UserController.updateMe
+);
+
+app.post(
+  "/user/address:id",
+  checkAuth,
+  handleValidationErrors,
+  updateUserValidation,
+  UserController.addAddress
+);
 app.get("/auth/me", checkAuth, UserController.getMe);
 
 app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
@@ -63,7 +79,7 @@ app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
 });
 
 app.get("/cards", CardController.getAll);
-app.get("/cards:id", CardController.getOne);
+app.get("/cards/:id", CardController.getOne);
 app.post(
   "/cards",
   checkAuth,
@@ -78,41 +94,6 @@ app.patch(
   handleValidationErrors,
   CardController.update
 );
-
-// app.get("/", (req, res) => {
-//   res.render("landingPage", {
-//     title: "Landing Page",
-//     active: "landing",
-//   });
-// });
-
-// app.get("/men", (req, res) => {
-//   res.render("menPage", {
-//     title: "Landing Page",
-//     active: "men",
-//   });
-// });
-
-// app.get("/women", (req, res) => {
-//   res.render("womenPage", {
-//     title: "Women Page",
-//     active: "women",
-//   });
-// });
-
-// app.get("/kids", (req, res) => {
-//   res.render("kidsPage", {
-//     title: "Kids Page",
-//     active: "kids",
-//   });
-// });
-
-// app.get("/favorites", (req, res) => {
-//   res.render("favoritesPage", {
-//     title: "Favorites Page",
-//     active: "favorites",
-//   });
-// });
 
 const start = async () => {
   const PORT = process.env.PORT || 3000;

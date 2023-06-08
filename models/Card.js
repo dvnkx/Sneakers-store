@@ -36,7 +36,10 @@ const CardSchema = new mongoose.Schema(
       required: true,
     },
     technology: String,
-    images: { type: Array, required: true },
+    images: {
+      type: [String],
+      required: true,
+    },
     sex: {
       type: String,
       required: true,

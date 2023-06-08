@@ -28,9 +28,17 @@ export const createCardValidation = [
   body("soleHeight", "Wrong format").isNumeric(),
   body("generalHeight", "Wrong format").isNumeric(),
   body("technology", "Wrong technology").isString().optional(),
-  body("images", "Wrong url reference").isArray(),
+  body("images", "Wrong number of images").isArray().isLength({ min: 1 }),
   body("sex", "Wrong sex")
     .isString()
-    .contains("men" || "women" || "unisex"),
+    .contains("Man" || "Women" || "Unisex"),
   body("forKids").isBoolean(),
+];
+
+export const updateUserValidation = [
+  body("fullName", "Password length must be minimum 2 symbols").isLength({
+    min: 2,
+  }),
+  body("email", "Wrong email format").isEmail(),
+  body("birthday", "Wrong birthday date").isString(),
 ];
