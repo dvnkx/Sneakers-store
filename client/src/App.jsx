@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   Landing,
-  Login,
   NotFound,
   Registration,
+  Login,
   Category,
   Favorites,
   Sneaker,
   Account,
+  Orders,
 } from "./pages/index.js";
 
 import { fetchAuthMe, selectIsAuth } from "./redux/slices/auth.js";
@@ -21,8 +22,6 @@ const App = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
 
-  console.log(window.location);
-
   useEffect(() => {
     dispatch(fetchAuthMe());
   }, [dispatch]);
@@ -30,12 +29,12 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
-
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/user">
-          <Route path="account" element={isAuth ? <Account /> : <Login />} />
+          {isAuth && <Route path="account" element={<Account />} />}
           <Route path="basket" />
+          <Route path="orders" element={<Orders />} />
         </Route>
         <Route path="/sneakers">
           <Route path="men" element={<Category />} />

@@ -1,0 +1,65 @@
+@import "../../../Styles/global-variables";
+
+.data-input {
+  width: 80%;
+  height: 20%;
+  margin: 0 7%;
+
+  input {
+    width: 70%;
+    height: 50%;
+    background-color: $white;
+    border: 1px solid $gray;
+    padding-left: 0.5em;
+    outline: none;
+  }
+
+  .message {
+    color: $error;
+    font-size: 15px;
+  }
+}
+
+.password-data-input {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 90%;
+  padding-bottom: 3%;
+
+  input {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 40px;
+    padding-left: 15px;
+    background-color: transparent;
+    outline: none;
+  }
+
+  .password-btn {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    opacity: 0.4;
+    margin-left: 73%;
+
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  p {
+    position: absolute;
+    margin-top: 17%;
+    color: $error;
+    font-size: 15px;
+  }
+}

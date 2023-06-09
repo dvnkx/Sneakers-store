@@ -30,7 +30,7 @@ export const register = async (req, res) => {
 
     const { passwordHash, ...userData } = user._doc;
 
-    res.json({
+    res.status(201).json({
       ...userData,
       token,
     });
@@ -106,6 +106,104 @@ export const getMe = async (req, res) => {
     console.log(error);
     res.status(500).json({
       message: "No acces",
+    });
+  }
+};
+
+export const updateMe = async (req, res) => {
+  try {
+    const userId = req.params.id.replace(/:/, "");
+
+    await UserModel.updateOne(
+      {
+        _id: userId,
+      },
+      {
+        fullName: req.body.fullName,
+        email: req.body.email,
+        birthday: req.body.birthday,
+      }
+    );
+
+    res.status(201).json({
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to update profile",
+    });
+  }
+};
+
+export const updatePassword = async (req, res) => {
+  try {
+    const userId = req.params.id.replace(/:/, "");
+
+    const { currentPassword, newPassword } = req.body;
+
+    const user = await UserModel.findOne({
+      _id: userId,
+    });
+
+    const isValidPass = await bcrypt.compare(
+      currentPassword,
+      user._doc.passwordHash
+    );
+
+    if (!isValidPass) {
+      return res.status(400).json({
+        message: "Wrong password",
+      });
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(newPassword, salt);
+
+    user.passwordHash = hash;
+    user.save();
+
+    res.status(200).json({
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to change password",
+    });
+  }
+};
+
+export const addAddress = async (req, res) => {
+  try {
+    const userId = req.params.id.replace(/:/, "");
+
+    await UserModel.updateOne(
+      {
+        _id: userId,
+      },
+      {
+        deliveryAddress: {
+          lastName: req.body.lastName,
+          name: req.body.name,
+          surname: req.body.surname,
+          postIndex: req.body.postIndex,
+          region: req.body.region,
+          street: req.body.street,
+          city: req.body.city,
+          phoneNumber: req.body.phoneNumber,
+          email: req.body.email,
+        },
+      }
+    );
+
+    res.status(201).json({
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to add address",
     });
   }
 };

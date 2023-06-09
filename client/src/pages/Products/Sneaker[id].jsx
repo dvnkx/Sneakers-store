@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./styles.css";
 
-import { fetchCardData } from "../../redux/slices/cardData";
+import axios from "../../axios.js";
 
 import {
   ImagesModel,
@@ -13,33 +12,36 @@ import {
 } from "../../components/ui/index";
 
 const CardPage = () => {
+  const [card, setCard] = useState();
+  const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
-  const { card } = useSelector((state) => state.card);
-  const dispatch = useDispatch();
-
-  const isCardLoading = card.status === "loading";
-
-  const { images, brand, model, cost, materials, description } = card.data;
 
   useEffect(() => {
-    dispatch(fetchCardData(id));
-  }, [dispatch, id]);
+    axios
+      .get(`/cards/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        setCard(res.data);
+        setIsLoading(false);
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <div className="card-page">
       <BackLine />
       <div className="sneaker-content">
-        {isCardLoading ? (
+        {isLoading ? (
           <Spinner />
         ) : (
           <>
-            <ImagesModel images={images} />
+            <ImagesModel images={card.images} />
             <CardInfo
-              brand={brand}
-              model={model}
-              cost={cost}
-              description={description}
-              materials={materials}
+              brand={card.brand}
+              model={card.model}
+              cost={card.cost}
+              description={card.description}
+              materials={card.materials}
             />
           </>
         )}

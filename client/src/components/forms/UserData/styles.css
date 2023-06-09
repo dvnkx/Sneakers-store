@@ -1,0 +1,70 @@
+.data-input {
+  width: 80%;
+  height: 20%;
+  margin: 0 7%;
+}
+.data-input input {
+  width: 70%;
+  height: 50%;
+  background-color: #d6d6d6;
+  border: 1px solid #8c8c8c;
+  padding-left: 0.5em;
+  outline: none;
+}
+.data-input .message {
+  color: #ff3333;
+  font-size: 15px;
+}
+
+.password-data-input {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: 90%;
+  padding-bottom: 3%;
+}
+.password-data-input input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  height: 40px;
+  padding-left: 15px;
+  background-color: transparent;
+  outline: none;
+}
+.password-data-input .password-btn {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  opacity: 0.4;
+  margin-left: 73%;
+}
+.password-data-input .password-btn img {
+  width: 25px;
+  height: 25px;
+}
+.password-data-input p {
+  position: absolute;
+  margin-top: 17%;
+  color: #ff3333;
+  font-size: 15px;
+}

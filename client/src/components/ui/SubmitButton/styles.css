@@ -1,4 +1,4 @@
-button {
+.submit {
   cursor: pointer;
   width: 26vw;
   height: 45px;
@@ -6,7 +6,7 @@ button {
   border: 2px solid #0b0909;
   background-color: #4b94f2;
 }
-button:active {
+.submit:active {
   -webkit-transform: translateY(2px);
       -ms-transform: translateY(2px);
           transform: translateY(2px);

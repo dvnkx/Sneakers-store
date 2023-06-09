@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { toparrow, bottomarrow } from "../../../assets/index";
+import { top_arrow, bottom_arrow } from "../../../assets/index";
 
 const ImagesModel = ({ images }) => {
   const [current, setCurrent] = useState(images[0]);
@@ -35,7 +35,7 @@ const ImagesModel = ({ images }) => {
     <div className="mat-images">
       <div className="swiper-container">
         <button onClick={goToPrevImg} className="prev">
-          <img alt="top" src={toparrow} />
+          <img alt="top" src={top_arrow} />
         </button>
         <div className="swiper-wrapper">
           {images.map((v, index) => {
@@ -53,7 +53,7 @@ const ImagesModel = ({ images }) => {
           })}
         </div>
         <button onClick={goToNextImg} className="next">
-          <img alt="bottom" src={bottomarrow} />
+          <img alt="bottom" src={bottom_arrow} />
         </button>
       </div>
       <div className="clone-image">

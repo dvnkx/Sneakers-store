@@ -158,12 +158,16 @@
           height: 60px;
           border: none;
           color: $white;
-          background-color: $secondary;
+          background-color: $primary;
           cursor: pointer;
 
-          :active {
-            transform: scale(1.6);
+          &:hover {
+            background-color: $silver;
+            transition: 300ms ease-in-out;
+          }
 
+          &:active {
+            transform: scale(1.01);
             transition: 100ms;
           }
         }

@@ -140,7 +140,7 @@ footer {
 
   .links {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
 
     h3 {
       font-size: 20px;
@@ -153,6 +153,75 @@ footer {
       a {
         margin: 0 1em;
         color: $primary;
+      }
+    }
+  }
+}
+
+.left {
+  width: 20%;
+  height: 100%;
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border: 2px solid $primary;
+      border-radius: 50px;
+      margin-bottom: 20px;
+
+      .image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      width: 41%;
+      height: 33.33%;
+      margin: 0.5em;
+      color: $primary;
+
+      img {
+        margin-right: 5%;
+        width: 20px;
+        height: 20px;
+        transform: scaleX(-1);
+      }
+    }
+
+    span {
+      border-top: 2px solid $secondary;
+      width: 200px;
+      opacity: 0.2;
+    }
+
+    button {
+      margin: 0.5em;
+      display: flex;
+      align-items: center;
+      height: 33.33%;
+      max-width: 28%;
+      border: none;
+      background-color: transparent;
+      font-size: 16px;
+      cursor: pointer;
+
+      img {
+        display: flex;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        margin-right: 5%;
       }
     }
   }
