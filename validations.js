@@ -40,7 +40,7 @@ export const updateUserValidation = [
     min: 2,
   }),
   body("email", "Wrong email format").isEmail(),
-  body("birthday", "Wrong birthday date").isString(),
+  body("birthday", "Wrong birthday date").isDate(),
 ];
 
 export const createDeliveryAddressValidation = [

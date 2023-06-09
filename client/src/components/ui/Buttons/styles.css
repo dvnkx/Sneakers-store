@@ -20,6 +20,9 @@
   color: #d6d6d6;
   cursor: pointer;
 }
+.buttons button:disabled {
+  opacity: 0.5;
+}
 .buttons button:hover {
   background-color: #2b2b2b;
   -webkit-transition: 200ms ease-in-out;

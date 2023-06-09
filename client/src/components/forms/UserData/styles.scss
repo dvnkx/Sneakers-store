@@ -2,29 +2,33 @@
 
 .data-input {
   width: 80%;
+  height: 20%;
   margin: 0 7%;
-
-  &:first-child {
-    margin-top: 15px;
-  }
 
   input {
     width: 70%;
-    height: 70%;
+    height: 50%;
     background-color: $white;
     border: 1px solid $gray;
     padding-left: 0.5em;
     outline: none;
   }
+
+  .message {
+    color: $error;
+    font-size: 15px;
+  }
 }
 
 .password-data-input {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 88%;
+  width: 90%;
+  padding-bottom: 3%;
 
   input {
     display: flex;
@@ -51,15 +55,11 @@
       height: 25px;
     }
   }
-}
 
-.address-data-input {
-  width: 100%;
-
-  input {
-    width: 88%;
-    height: 30px;
-    border: 1px solid $gray;
-    margin-left: -9%;
+  p {
+    position: absolute;
+    margin-top: 17%;
+    color: $error;
+    font-size: 15px;
   }
 }

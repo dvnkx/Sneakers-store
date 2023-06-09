@@ -17,6 +17,10 @@
     color: $white;
     cursor: pointer;
 
+    &:disabled {
+      opacity: 0.5;
+    }
+
     &:hover {
       background-color: $silver;
       transition: 200ms ease-in-out;

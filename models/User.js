@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema(
       required: true,
     },
     avatarUrl: String,
-    birthday: String,
+    birthday: Number,
     deliveryAddress: {
       lastName: String,
       name: String,

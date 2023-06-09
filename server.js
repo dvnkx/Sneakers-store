@@ -56,18 +56,14 @@ app.post(
   handleValidationErrors,
   UserController.register
 );
+app.get("/auth/me", checkAuth, UserController.getMe);
+
 app.patch(
   "/user/update:id",
   checkAuth,
   handleValidationErrors,
   updateUserValidation,
   UserController.updateMe
-);
-app.patch(
-  "/user/password:id",
-  checkAuth,
-  handleValidationErrors,
-  UserController.updatePassword
 );
 app.post(
   "/user/address:id",
@@ -76,7 +72,12 @@ app.post(
   createDeliveryAddressValidation,
   UserController.addAddress
 );
-app.get("/auth/me", checkAuth, UserController.getMe);
+app.patch(
+  "/user/password:id",
+  checkAuth,
+  handleValidationErrors,
+  UserController.updatePassword
+);
 
 app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
   res.json({

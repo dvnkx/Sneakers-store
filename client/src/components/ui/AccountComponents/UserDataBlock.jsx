@@ -6,11 +6,22 @@ import "./styles.css";
 import { UserInput } from "../../forms/index";
 import { Buttons } from "../index";
 
+import axios from "../../../axios";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { editDataSchema } from "../../../schemas";
+// import { getBirthdayDate } from "../../../helpers/getDate";
+
+import { getUnixTime } from "date-fns";
 
 const UserDataBlock = ({ setVisible }) => {
-  const { fullName, email } = useSelector((state) => state.auth.data);
+  const { fullName, email, birthday, _id } = useSelector(
+    (state) => state.auth.data
+  );
+  const userData = {
+    fullName,
+    email,
+    birthday,
+  };
 
   const {
     register,
@@ -20,14 +31,32 @@ const UserDataBlock = ({ setVisible }) => {
     defaultValues: {
       fullName: fullName,
       email: email,
-      birthday: "2023-01-01",
+      birthday: "",
     },
     resolver: yupResolver(editDataSchema),
     mode: "onChange",
   });
 
-  const onSubmit = () => {
-    setVisible(true);
+  const onSubmit = async (values) => {
+    values.birthday = getUnixTime(values.birthday);
+
+    if (
+      values.birthday === userData.birthday &&
+      values.fullName === userData.fullName &&
+      values.email === userData.email
+    ) {
+      return setVisible();
+    }
+
+    const { fullName, email, birthday } = values;
+
+    await axios.patch(`/user/update:${_id}`, {
+      fullName,
+      email,
+      birthday,
+    });
+
+    window.location.reload();
   };
 
   return (
@@ -53,7 +82,7 @@ const UserDataBlock = ({ setVisible }) => {
         error={Boolean(errors.birthday?.message)}
         errorMessage={errors.birthday?.message}
       />
-      <Buttons setVisible={setVisible} />
+      <Buttons disabled={!isValid} setVisible={setVisible} />
     </form>
   );
 };

@@ -1,20 +1,23 @@
 .data-input {
   width: 80%;
+  height: 20%;
   margin: 0 7%;
-}
-.data-input:first-child {
-  margin-top: 15px;
 }
 .data-input input {
   width: 70%;
-  height: 70%;
+  height: 50%;
   background-color: #d6d6d6;
   border: 1px solid #8c8c8c;
   padding-left: 0.5em;
   outline: none;
 }
+.data-input .message {
+  color: #ff3333;
+  font-size: 15px;
+}
 
 .password-data-input {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,7 +32,8 @@
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  width: 88%;
+  width: 90%;
+  padding-bottom: 3%;
 }
 .password-data-input input {
   display: -webkit-box;
@@ -58,13 +62,9 @@
   width: 25px;
   height: 25px;
 }
-
-.address-data-input {
-  width: 100%;
-}
-.address-data-input input {
-  width: 88%;
-  height: 30px;
-  border: 1px solid #8c8c8c;
-  margin-left: -9%;
+.password-data-input p {
+  position: absolute;
+  margin-top: 17%;
+  color: #ff3333;
+  font-size: 15px;
 }

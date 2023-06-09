@@ -41,25 +41,47 @@
   flex-direction: column;
   justify-content: space-between;
   width: 80%;
-  padding: 25px;
+  padding: 3% 5% 0 5%;
   height: 41vh;
   border: 2px solid $gray;
   background-color: $white;
+
+  .buttons {
+    margin-left: -0.4%;
+  }
 }
 
 .address-data-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 77.87%;
+  width: 80%;
   height: 60%;
   border: 2px solid $gray;
   background-color: $white;
   margin-top: 10px;
   padding: 3% 5% 0 5%;
 
+  .data-input {
+    h3 {
+      display: flex;
+      margin-left: -9%;
+    }
+
+    p {
+      display: flex;
+      margin-left: -9%;
+    }
+
+    input {
+      width: 88%;
+      height: 35px;
+      border: 1px solid $gray;
+      margin-left: -9%;
+    }
+  }
+
   .buttons {
-    margin-left: -6.5%;
+    margin-left: -7.5%;
   }
 
   .react-tel-input {
@@ -91,12 +113,13 @@
 
 .password-data-form {
   margin-top: 10px;
+  padding: 3% 5% 0 5%;
   border: 2px solid $gray;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 88%;
-  height: 27vh;
+  width: 80%;
+  height: 30vh;
   background-color: $white;
 
   label {
@@ -105,7 +128,7 @@
   }
 
   .buttons {
-    margin: 3% 0 0 -2.4%;
-    padding-bottom: 2%;
+    margin-left: -0.1%;
+    padding: 3% 0 2% 0;
   }
 }
