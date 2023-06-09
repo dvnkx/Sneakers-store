@@ -17,10 +17,10 @@ const UserSchema = new mongoose.Schema(
     },
     avatarUrl: String,
     birthday: String,
-    address: {
-      lastname: String,
+    deliveryAddress: {
+      lastName: String,
       name: String,
-      surnme: String,
+      surname: String,
       postIndex: Number,
       region: String,
       street: String,

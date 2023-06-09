@@ -10,5 +10,7 @@
   },
   "plugins": ["react"],
   "ignorePatterns": ["vendor/**/*.css"],
-  "rules": {}
+  "rules": {
+    "react/prop-types": 0
+  }
 }

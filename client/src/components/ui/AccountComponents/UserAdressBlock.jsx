@@ -16,10 +16,9 @@ const UserAdressBlock = ({ setVisible }) => {
       <AddressInput label={"Region"} />
       <AddressInput label={"Street"} />
       <AddressInput label={"City/Town"} />
-      <AddressInput
-        label={"Phone Number"}
-        children={<PhoneInput country={"ua"} />}
-      />
+      <AddressInput label={"Phone Number"}>
+        <PhoneInput country={"ua"} />
+      </AddressInput>
       <AddressInput label={"Email"} type={"email"} />
       <Buttons setVisible={setVisible} />
     </form>

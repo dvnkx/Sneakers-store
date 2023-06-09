@@ -9,6 +9,7 @@ import {
   loginValidation,
   createCardValidation,
   updateUserValidation,
+  createDeliveryAddressValidation,
 } from "./validations.js";
 
 import { handleValidationErrors, checkAuth } from "./utils/index.js";
@@ -62,12 +63,17 @@ app.patch(
   updateUserValidation,
   UserController.updateMe
 );
-
+app.patch(
+  "/user/password:id",
+  checkAuth,
+  handleValidationErrors,
+  UserController.updatePassword
+);
 app.post(
   "/user/address:id",
   checkAuth,
   handleValidationErrors,
-  updateUserValidation,
+  createDeliveryAddressValidation,
   UserController.addAddress
 );
 app.get("/auth/me", checkAuth, UserController.getMe);

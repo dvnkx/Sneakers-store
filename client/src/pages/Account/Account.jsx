@@ -29,12 +29,12 @@ const Account = () => {
     password: false,
   });
 
-  const { fullName, email, avatarUrl } = useSelector(
+  const { fullName, email, birthday, deliveryAddress, avatarUrl } = useSelector(
     (state) => state.auth.data
   );
 
-  const personalData = [fullName, email];
-  const addressData = [];
+  const personalData = [fullName, email, birthday];
+  const addressData = Object.values(deliveryAddress);
 
   return (
     <div className="account-container">
