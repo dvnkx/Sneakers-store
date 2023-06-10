@@ -2,7 +2,18 @@ import React from "react";
 
 import { heart } from "../../../assets/index";
 
-const CardInfo = ({ brand, model, cost, description, materials }) => {
+const CardInfo = ({
+  brand,
+  model,
+  cost,
+  materials,
+  technology,
+  generalHeight,
+  soleHeight,
+  fastener,
+  color,
+  sex,
+}) => {
   return (
     <div className="right">
       <div className="name">
@@ -18,9 +29,31 @@ const CardInfo = ({ brand, model, cost, description, materials }) => {
         <button className="buy">Buy</button>
       </div>
       <div className="description">
-        <p className="text">{description}</p>
-        <b>Materials</b>
-        <p className="materials">{materials}</p>
+        <h2>Materials :</h2>
+        <ul>
+          <li>{materials}</li>
+        </ul>
+        <h2>Sex :</h2>
+        <ul>
+          <li>{sex}</li>
+        </ul>
+        <h2>Color :</h2>
+        <ul>
+          <li>{color}</li>
+        </ul>
+        <h2>Fastener :</h2>
+        <ul>
+          <li>{fastener}</li>
+        </ul>
+        <h2>Technology :</h2>
+        <ul>
+          <li>{technology}</li>
+        </ul>
+        <h2>Height :</h2>
+        <ul>
+          <li>General heigth: {generalHeight}</li>
+          <li>Sole heigth: {soleHeight}</li>
+        </ul>
       </div>
     </div>
   );

@@ -28,6 +28,10 @@ const UserSchema = new mongoose.Schema(
       phoneNumber: String,
       email: String,
     },
+    favorites: {
+      type: [String],
+      required: true,
+    },
   },
   {
     timestamps: true,

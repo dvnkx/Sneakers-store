@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
 import UserModel from "../models/User.js";
+import CardModel from "../models/Card.js";
 
 export const register = async (req, res) => {
   try {
@@ -204,6 +205,78 @@ export const addAddress = async (req, res) => {
     console.log(error);
     res.status(500).json({
       message: "Failed to add address",
+    });
+  }
+};
+
+export const getAllFavorites = async (req, res) => {
+  try {
+    const userId = req.params.id.replace(/:/, "");
+
+    const user = await UserModel.findById(userId);
+
+    const favorites = await CardModel.find({
+      _id: {
+        $in: user.favorites,
+      },
+    });
+
+    res.status(200).json({
+      success: true,
+      message: favorites,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to get favorites",
+    });
+  }
+};
+
+export const addToFavorites = async (req, res) => {
+  try {
+    const userId = req.params.id.replace(/:/, "");
+
+    await UserModel.updateOne(
+      {
+        _id: userId,
+      },
+      {
+        $push: { favorites: req.body.cardId },
+      }
+    );
+
+    return res.status(200).json({
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to add card to favorites",
+    });
+  }
+};
+
+export const removeFromFavorites = async (req, res) => {
+  try {
+    const userId = req.params.id.replace(/:/, "");
+
+    await UserModel.updateOne(
+      {
+        _id: userId,
+      },
+      {
+        $pull: { favorites: req.body.cardId },
+      }
+    );
+
+    return res.status(200).json({
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to remove card from favorites",
     });
   }
 };

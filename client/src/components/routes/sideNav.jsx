@@ -22,13 +22,13 @@ const SideNav = ({ avatar }) => {
 
   const href = getPageName();
 
-  const onClickLogout = () => {
+  const onClickLogout = useCallback(() => {
     if (window.confirm("Are you sure you want to log out?")) {
       dispatch(logout());
       window.localStorage.removeItem("token");
       navigate("/");
     }
-  };
+  }, [dispatch, logout]);
 
   return (
     <div className="left">

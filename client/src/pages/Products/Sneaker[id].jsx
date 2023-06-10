@@ -40,8 +40,13 @@ const CardPage = () => {
               brand={card.brand}
               model={card.model}
               cost={card.cost}
-              description={card.description}
               materials={card.materials}
+              technology={card.technology}
+              generalHeight={card.generalHeight}
+              soleHeight={card.soleHeight}
+              fastener={card.fastener}
+              color={card.color}
+              sex={card.sex}
             />
           </>
         )}
