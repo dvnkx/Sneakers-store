@@ -1,0 +1,55 @@
+@import "../../Styles/global-variables";
+
+.favorites-contaner {
+  width: 100vw;
+  min-height: 91vh;
+
+  .empty-fav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 91vh;
+    position: relative;
+
+    h1 {
+      margin-bottom: 30%;
+      position: absolute;
+      text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    a {
+      margin-top: 30%;
+      position: absolute;
+      font-size: 40px;
+      color: $primary;
+      text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3);
+
+      &:hover {
+        text-decoration: underline;
+        text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  .go-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 91vh;
+    position: relative;
+
+    a {
+      position: absolute;
+      font-size: 40px;
+      color: $primary;
+      text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3);
+
+      &:hover {
+        text-decoration: underline;
+        text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+}

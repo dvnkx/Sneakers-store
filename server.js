@@ -102,6 +102,19 @@ app.patch(
   CardController.update
 );
 
+app.get(
+  "/favorites:id",
+  checkAuth,
+  handleValidationErrors,
+  UserController.getAllFavorites
+);
+app.put(
+  "/favorites:id",
+  checkAuth,
+  handleValidationErrors,
+  UserController.addToFavorites
+);
+
 const start = async () => {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT);

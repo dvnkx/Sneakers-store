@@ -61,9 +61,9 @@ const Landing = () => {
             <br /> <br /> Our collection features some of the most sought-after
             sneakers in the world, including classic retros and the hottest
             collaborations. We understand the thrill of getting your hands on a
-            rare pair of kicks, which is why we're committed to bringing you the
-            best selection of limited edition sneakers from around the globe.{" "}
-            <br /> <br />
+            rare pair of kicks, which is why we&apos;re committed to bringing
+            you the best selection of limited edition sneakers from around the
+            globe. <br /> <br />
             Our team is made up of dedicated sneakerheads who are passionate
             about footwear and the culture surrounding it. We work hard to
             ensure that our inventory is always up-to-date with the latest
@@ -73,10 +73,10 @@ const Landing = () => {
             website is user-friendly and easy to navigate, allowing you to
             browse our selection with ease. We also offer fast and reliable
             shipping, so you can get your kicks delivered straight to your
-            doorstep. <br /> <br /> Whether you're looking to add to your
-            collection or are a new sneakerhead just starting out, we've got you
-            covered. Check out our selection today and discover the perfect pair
-            of sneakers to take your style to the next level.
+            doorstep. <br /> <br /> Whether you&apos;re looking to add to your
+            collection or are a new sneakerhead just starting out, we&apos;ve
+            got you covered. Check out our selection today and discover the
+            perfect pair of sneakers to take your style to the next level.
           </p>
         </div>
         <p className="text-intro">Are they legit?</p>

@@ -18,3 +18,5 @@ export { default as adidas_logo } from "./logos/adidas-logo.png";
 export { default as yeezy_logo } from "./logos/yeezy-logo.png";
 export { default as top_arrow } from "./icons/top-arrow.png";
 export { default as bottom_arrow } from "./icons/bottom-arrow.png";
+export { default as not_auth_fav } from "./icons/not-auth-fav.png";
+export { default as empty_fav } from "./icons/empty-fav.png";

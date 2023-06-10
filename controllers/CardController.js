@@ -1,6 +1,6 @@
 import CardModel from "../models/Card.js";
 
-export const getAll = async (req, res) => {
+export const getAll = async (_, res) => {
   try {
     const cards = await CardModel.find().populate("createdBy").exec();
 
@@ -19,7 +19,7 @@ export const getOne = async (req, res) => {
 
     const doc = await CardModel.findById(cardId).exec();
 
-    res.json(doc);
+    res.status(200).json(doc);
   } catch (error) {
     console.log(error);
     res.status(500).json({
