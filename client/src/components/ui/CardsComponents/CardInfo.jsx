@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
-import { heart } from "../../../assets/index";
+import { heart, filled_heart } from "../../../assets/index";
+
+import axios from "../../../axios";
 
 const CardInfo = ({
+  cardId,
   brand,
   model,
   cost,
@@ -14,6 +18,21 @@ const CardInfo = ({
   color,
   sex,
 }) => {
+  const userData = useSelector((state) => state.auth.data);
+  const [isFocused, setIsFocused] = useState(
+    userData?.favorites.includes(cardId)
+  );
+
+  const handleFavorites = () => {
+    axios.put(`/favorites:${userData?._id}`, { cardId }).then((res) => {
+      if (res.data.message.includes("added")) {
+        setIsFocused(true);
+      } else {
+        setIsFocused(false);
+      }
+    });
+  };
+
   return (
     <div className="right">
       <div className="name">
@@ -24,7 +43,11 @@ const CardInfo = ({
         <h1>{cost}</h1>
         <h2>$</h2>
         <button className="heart">
-          <img alt="heart" src={heart} />
+          <img
+            alt="heart"
+            onClick={handleFavorites}
+            src={isFocused ? filled_heart : heart}
+          />
         </button>
         <button className="buy">Buy</button>
       </div>

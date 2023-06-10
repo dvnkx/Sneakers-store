@@ -1,6 +1,6 @@
 import CardModel from "../models/Card.js";
 
-export const getAll = async (req, res) => {
+export const getAll = async (_, res) => {
   try {
     const cards = await CardModel.find().populate("createdBy").exec();
 

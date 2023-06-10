@@ -20,7 +20,6 @@ const CardPage = () => {
     axios
       .get(`/cards/${id}`)
       .then((res) => {
-        console.log(res.data);
         setCard(res.data);
         setIsLoading(false);
       })
@@ -37,6 +36,7 @@ const CardPage = () => {
           <>
             <ImagesModel images={card.images} />
             <CardInfo
+              cardId={card._id}
               brand={card.brand}
               model={card.model}
               cost={card.cost}

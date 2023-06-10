@@ -234,49 +234,44 @@ export const getAllFavorites = async (req, res) => {
 };
 
 export const addToFavorites = async (req, res) => {
+  const userId = req.params.id.replace(/:/, "");
+  const { cardId } = req.body;
+
   try {
-    const userId = req.params.id.replace(/:/, "");
+    const user = await UserModel.findById(userId);
+    const alreadyAdded = user.favorites.find((id) => id.toString() === cardId);
 
-    await UserModel.updateOne(
-      {
-        _id: userId,
-      },
-      {
-        $push: { favorites: req.body.cardId },
-      }
-    );
+    if (alreadyAdded) {
+      await UserModel.findByIdAndUpdate(
+        userId,
+        {
+          $pull: { favorites: cardId },
+        },
+        { new: true }
+      );
 
-    return res.status(200).json({
-      success: true,
-    });
+      res.status(200).json({
+        success: true,
+        message: "Card has been removed",
+      });
+    } else {
+      await UserModel.findByIdAndUpdate(
+        userId,
+        {
+          $push: { favorites: cardId },
+        },
+        { new: true }
+      );
+
+      res.status(200).json({
+        success: true,
+        message: "Card has been added",
+      });
+    }
   } catch (error) {
     console.log(error);
     res.status(500).json({
       message: "Failed to add card to favorites",
-    });
-  }
-};
-
-export const removeFromFavorites = async (req, res) => {
-  try {
-    const userId = req.params.id.replace(/:/, "");
-
-    await UserModel.updateOne(
-      {
-        _id: userId,
-      },
-      {
-        $pull: { favorites: req.body.cardId },
-      }
-    );
-
-    return res.status(200).json({
-      success: true,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: "Failed to remove card from favorites",
     });
   }
 };

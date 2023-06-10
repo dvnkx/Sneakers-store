@@ -108,17 +108,11 @@ app.get(
   handleValidationErrors,
   UserController.getAllFavorites
 );
-app.post(
+app.put(
   "/favorites:id",
   checkAuth,
   handleValidationErrors,
   UserController.addToFavorites
-);
-app.delete(
-  "/favorites:id",
-  checkAuth,
-  handleValidationErrors,
-  UserController.removeFromFavorites
 );
 
 const start = async () => {
