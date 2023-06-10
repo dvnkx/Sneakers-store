@@ -210,9 +210,8 @@ export const addAddress = async (req, res) => {
 };
 
 export const getAllFavorites = async (req, res) => {
+  const userId = req.params.id.replace(/:/, "");
   try {
-    const userId = req.params.id.replace(/:/, "");
-
     const user = await UserModel.findById(userId);
 
     const favorites = await CardModel.find({
@@ -223,7 +222,7 @@ export const getAllFavorites = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: favorites,
+      cards: favorites,
     });
   } catch (error) {
     console.log(error);

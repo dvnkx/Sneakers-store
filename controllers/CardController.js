@@ -19,7 +19,7 @@ export const getOne = async (req, res) => {
 
     const doc = await CardModel.findById(cardId).exec();
 
-    res.json(doc);
+    res.status(200).json(doc);
   } catch (error) {
     console.log(error);
     res.status(500).json({
