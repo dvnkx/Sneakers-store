@@ -4,6 +4,8 @@ import cors from "cors";
 
 import mongoose from "mongoose";
 
+import "dotenv/config.js";
+
 import {
   registerValidation,
   loginValidation,
@@ -17,9 +19,7 @@ import { handleValidationErrors, checkAuth } from "./utils/index.js";
 import { UserController, CardController } from "./controllers/index.js";
 
 mongoose
-  .connect(
-    "mongodb+srv://dvnkx:eazywin32@cluster0.memmfxv.mongodb.net/sneakers_store?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MONGO_URI.toString())
   .catch((err) => console.log(err));
 
 const app = express();
