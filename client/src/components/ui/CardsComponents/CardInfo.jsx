@@ -33,6 +33,11 @@ const CardInfo = ({
     });
   };
 
+  const handleBasket = () => {
+    axios.put(`/basket:${userData?._id}`, { cardId, type: "add" });
+    window.location.reload();
+  };
+
   return (
     <div className="right">
       <div className="name">
@@ -49,7 +54,9 @@ const CardInfo = ({
             src={isFocused ? filled_heart : heart}
           />
         </button>
-        <button className="buy">Buy</button>
+        <button onClick={handleBasket} className="buy">
+          Buy
+        </button>
       </div>
       <div className="description">
         <h2>Materials :</h2>

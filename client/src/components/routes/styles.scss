@@ -52,7 +52,21 @@ nav {
   }
 
   .icons2 {
+    position: relative;
     width: 5%;
+
+    .basket-counter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 35% 35% 0 0;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      position: absolute;
+      background-color: rgb(68, 68, 76, 0.6);
+      color: $gray;
+    }
   }
 
   .icon {

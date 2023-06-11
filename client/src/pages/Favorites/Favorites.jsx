@@ -5,7 +5,7 @@ import "./styles.css";
 import axios from "../../axios";
 import { selectIsAuth } from "../../redux/slices/auth";
 
-import { CardSkeleton, EmptyFav, NotAuth } from "../../components/ui/index";
+import { CardSkeleton, EmptyContainer } from "../../components/ui/index";
 import { Card } from "../../components/ui/CardsComponents/index";
 
 const Favorites = () => {
@@ -33,10 +33,8 @@ const Favorites = () => {
     <div className="favorites-contaner">
       {isLoading ? (
         <CardSkeleton cards={4} />
-      ) : !isAuth ? (
-        <NotAuth />
       ) : cards.length === 0 ? (
-        <EmptyFav />
+        <EmptyContainer />
       ) : (
         cards.map((card) => <Card key={card._id} card={card} />)
       )}

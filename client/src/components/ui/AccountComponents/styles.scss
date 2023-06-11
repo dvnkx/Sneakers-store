@@ -10,6 +10,7 @@
     border: 2px solid $secondary;
     background-color: #d6d6d6;
     padding: 25px;
+    box-shadow: $account_box_shadow;
 
     ul {
       list-style: none;
@@ -45,6 +46,7 @@
   height: 41vh;
   border: 2px solid $gray;
   background-color: $white;
+  box-shadow: $account_box_shadow;
 
   .buttons {
     margin-left: -0.4%;
@@ -60,6 +62,7 @@
   background-color: $white;
   margin-top: 10px;
   padding: 3% 5% 0 5%;
+  box-shadow: $account_box_shadow;
 
   .data-input {
     h3 {
@@ -121,6 +124,7 @@
   width: 80%;
   height: 30vh;
   background-color: $white;
+  box-shadow: $account_box_shadow;
 
   label {
     margin-top: 2%;

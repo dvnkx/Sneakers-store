@@ -89,9 +89,9 @@ export const login = async (req, res) => {
 };
 
 export const getMe = async (req, res) => {
-  try {
-    const user = await UserModel.findById(req.userId);
+  const user = await UserModel.findById(req.userId);
 
+  try {
     if (!user) {
       return res.status(404).json({
         message: "No such user",
@@ -112,9 +112,9 @@ export const getMe = async (req, res) => {
 };
 
 export const updateMe = async (req, res) => {
-  try {
-    const userId = req.params.id.replace(/:/, "");
+  const userId = req.params.id.replace(/:/, "");
 
+  try {
     await UserModel.updateOne(
       {
         _id: userId,
@@ -138,9 +138,9 @@ export const updateMe = async (req, res) => {
 };
 
 export const updatePassword = async (req, res) => {
-  try {
-    const userId = req.params.id.replace(/:/, "");
+  const userId = req.params.id.replace(/:/, "");
 
+  try {
     const { currentPassword, newPassword } = req.body;
 
     const user = await UserModel.findOne({
@@ -176,9 +176,9 @@ export const updatePassword = async (req, res) => {
 };
 
 export const addAddress = async (req, res) => {
-  try {
-    const userId = req.params.id.replace(/:/, "");
+  const userId = req.params.id.replace(/:/, "");
 
+  try {
     await UserModel.updateOne(
       {
         _id: userId,
@@ -211,6 +211,7 @@ export const addAddress = async (req, res) => {
 
 export const getAllFavorites = async (req, res) => {
   const userId = req.params.id.replace(/:/, "");
+
   try {
     const user = await UserModel.findById(userId);
 
@@ -251,7 +252,7 @@ export const addToFavorites = async (req, res) => {
 
       res.status(200).json({
         success: true,
-        message: "Card has been removed",
+        message: "Card has been removed from favorites",
       });
     } else {
       await UserModel.findByIdAndUpdate(
@@ -264,13 +265,105 @@ export const addToFavorites = async (req, res) => {
 
       res.status(200).json({
         success: true,
-        message: "Card has been added",
+        message: "Card has been added to favorites",
       });
     }
   } catch (error) {
     console.log(error);
     res.status(500).json({
       message: "Failed to add card to favorites",
+    });
+  }
+};
+
+export const getBasket = async (req, res) => {
+  const userId = req.params.id.replace(/:/, "");
+
+  try {
+    const user = await UserModel.findById(userId);
+
+    const basketCards = await CardModel.find({
+      _id: {
+        $in: user.basket,
+      },
+    });
+
+    res.status(200).json({
+      success: true,
+      cards: basketCards,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to get cards from basket",
+    });
+  }
+};
+
+export const addToBasket = async (req, res) => {
+  const userId = req.params.id.replace(/:/, "");
+  const { cardId, type } = req.body;
+
+  try {
+    const user = await UserModel.findById(userId);
+    const alreadyAdded = user.basket.find((id) => id.toString() === cardId);
+
+    if (type === "add") {
+      if (alreadyAdded) {
+        return res.json({
+          message: "Card already in basket",
+        });
+      } else {
+        await UserModel.findByIdAndUpdate(
+          userId,
+          {
+            $push: { basket: cardId },
+          },
+          { new: true }
+        );
+
+        res.status(200).json({
+          success: true,
+          message: "Card has been added to basket",
+        });
+      }
+    } else {
+      await UserModel.findByIdAndUpdate(
+        userId,
+        {
+          $pull: { basket: cardId },
+        },
+        { new: true }
+      );
+
+      res.status(200).json({
+        success: true,
+        message: "Card has been removed from basket",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to add card to basket",
+    });
+  }
+};
+
+export const cleanUpBasket = async (req, res) => {
+  const userId = req.params.id.replace(/:/, "");
+  try {
+    await UserModel.findByIdAndUpdate(userId, {
+      $set: { basket: [] },
+    });
+
+    res.status(200).json({
+      message: "Basket has been cleaned up",
+      orderId: Date.now(),
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to clean up  basket",
     });
   }
 };
