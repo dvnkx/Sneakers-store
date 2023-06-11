@@ -1,0 +1,58 @@
+.basket-card-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1em;
+  border: 1px solid #0b0909;
+}
+.basket-card-wrapper img {
+  width: 20%;
+  height: 120px;
+  margin: 0 5%;
+}
+.basket-card-wrapper .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.basket-card-wrapper .card .card-info {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.basket-card-wrapper .card .card-info h3 {
+  opacity: 0.4;
+}
+.basket-card-wrapper .card button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.basket-card-wrapper .card button p {
+  font-size: 30px;
+  opacity: 0.5;
+  -webkit-transition: 200ms ease-in-out;
+  -o-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+  rotate: 0deg;
+}
+.basket-card-wrapper .card button p:hover {
+  rotate: 90deg;
+  -webkit-transition: 200ms ease-in-out;
+  -o-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+}

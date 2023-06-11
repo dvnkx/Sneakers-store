@@ -9,7 +9,7 @@ const EmptyContainer = () => {
   return (
     <div className="empty-container">
       <h1>Something is missing here</h1>
-      <CustomLink to={"/sneakers/men"}>View products</CustomLink>
+      <CustomLink to={"/sneakers/men"}>View our products</CustomLink>
       <img src={empty_fav} />
     </div>
   );

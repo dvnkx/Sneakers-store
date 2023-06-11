@@ -348,3 +348,22 @@ export const addToBasket = async (req, res) => {
     });
   }
 };
+
+export const cleanUpBasket = async (req, res) => {
+  const userId = req.params.id.replace(/:/, "");
+  try {
+    await UserModel.findByIdAndUpdate(userId, {
+      $set: { basket: [] },
+    });
+
+    res.status(200).json({
+      message: "Basket has been cleaned up",
+      orderId: Date.now(),
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to clean up  basket",
+    });
+  }
+};

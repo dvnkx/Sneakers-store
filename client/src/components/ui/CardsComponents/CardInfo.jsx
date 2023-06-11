@@ -35,6 +35,7 @@ const CardInfo = ({
 
   const handleBasket = () => {
     axios.put(`/basket:${userData?._id}`, { cardId, type: "add" });
+    window.location.reload();
   };
 
   return (

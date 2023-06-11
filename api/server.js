@@ -128,6 +128,13 @@ app.put(
   UserController.addToBasket
 );
 
+app.delete(
+  "/basket:id",
+  checkAuth,
+  handleValidationErrors,
+  UserController.cleanUpBasket
+);
+
 const start = async () => {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT);

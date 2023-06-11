@@ -7,30 +7,7 @@
   border: 2px solid $primary;
   margin: 1em;
   cursor: pointer;
-  position: relative;
-
-  button {
-    position: absolute;
-    top: 2%;
-    right: 2%;
-    width: 40px;
-    height: 40px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-
-    p {
-      font-size: 30px;
-      opacity: 0.5;
-      transition: 200ms ease-in-out;
-      rotate: 0deg;
-
-      &:hover {
-        rotate: 90deg;
-        transition: 200ms ease-in-out;
-      }
-    }
-  }
+  box-shadow: $cards_box_shadow;
 
   .card-head {
     display: flex;

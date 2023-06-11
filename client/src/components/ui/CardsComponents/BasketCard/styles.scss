@@ -1,0 +1,50 @@
+@import "../../../../Styles/global-variables";
+
+.basket-card-wrapper {
+  display: flex;
+  margin: 1em;
+  border: 1px solid $primary;
+
+  img {
+    width: 20%;
+    height: 120px;
+    margin: 0 5%;
+  }
+
+  .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .card-info {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+
+      h3 {
+        opacity: 0.4;
+      }
+    }
+
+    button {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      p {
+        font-size: 30px;
+        opacity: 0.5;
+        transition: 200ms ease-in-out;
+        rotate: 0deg;
+
+        &:hover {
+          rotate: 90deg;
+          transition: 200ms ease-in-out;
+        }
+      }
+    }
+  }
+}
