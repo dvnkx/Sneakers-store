@@ -9,7 +9,6 @@ import { Buttons } from "../index";
 import axios from "../../../axios";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { editDataSchema } from "../../../schemas";
-// import { getBirthdayDate } from "../../../helpers/getDate";
 
 import { getUnixTime } from "date-fns";
 

@@ -115,6 +115,13 @@ app.put(
   UserController.addToFavorites
 );
 
+app.put(
+  "/basket:id",
+  checkAuth,
+  handleValidationErrors,
+  UserController.addToBasket
+);
+
 const start = async () => {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT);

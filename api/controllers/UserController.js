@@ -251,7 +251,7 @@ export const addToFavorites = async (req, res) => {
 
       res.status(200).json({
         success: true,
-        message: "Card has been removed",
+        message: "Card has been removed from favorites",
       });
     } else {
       await UserModel.findByIdAndUpdate(
@@ -264,13 +264,44 @@ export const addToFavorites = async (req, res) => {
 
       res.status(200).json({
         success: true,
-        message: "Card has been added",
+        message: "Card has been added to favorites",
       });
     }
   } catch (error) {
     console.log(error);
     res.status(500).json({
       message: "Failed to add card to favorites",
+    });
+  }
+};
+
+export const addToBasket = async (req, res) => {
+  const userId = req.params.id.replace(/:/, "");
+  const { cardId } = req.body;
+
+  try {
+    const user = await UserModel.findById(userId);
+    const alreadyAdded = user.basket.find((id) => id.toString() === cardId);
+
+    if (alreadyAdded) return;
+    else {
+      await UserModel.findByIdAndUpdate(
+        userId,
+        {
+          $push: { basket: cardId },
+        },
+        { new: true }
+      );
+
+      res.status(200).json({
+        success: true,
+        message: "Card has been added to basket",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to add card to basket",
     });
   }
 };

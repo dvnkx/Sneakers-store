@@ -28,10 +28,9 @@ const UserSchema = new mongoose.Schema(
       phoneNumber: String,
       email: String,
     },
-    favorites: {
-      type: [String],
-      required: true,
-    },
+    favorites: [String],
+
+    basket: [String],
   },
   {
     timestamps: true,
