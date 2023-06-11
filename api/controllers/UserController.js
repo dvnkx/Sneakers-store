@@ -89,9 +89,9 @@ export const login = async (req, res) => {
 };
 
 export const getMe = async (req, res) => {
-  try {
-    const user = await UserModel.findById(req.userId);
+  const user = await UserModel.findById(req.userId);
 
+  try {
     if (!user) {
       return res.status(404).json({
         message: "No such user",
@@ -112,9 +112,9 @@ export const getMe = async (req, res) => {
 };
 
 export const updateMe = async (req, res) => {
-  try {
-    const userId = req.params.id.replace(/:/, "");
+  const userId = req.params.id.replace(/:/, "");
 
+  try {
     await UserModel.updateOne(
       {
         _id: userId,
@@ -138,9 +138,9 @@ export const updateMe = async (req, res) => {
 };
 
 export const updatePassword = async (req, res) => {
-  try {
-    const userId = req.params.id.replace(/:/, "");
+  const userId = req.params.id.replace(/:/, "");
 
+  try {
     const { currentPassword, newPassword } = req.body;
 
     const user = await UserModel.findOne({
@@ -176,9 +176,9 @@ export const updatePassword = async (req, res) => {
 };
 
 export const addAddress = async (req, res) => {
-  try {
-    const userId = req.params.id.replace(/:/, "");
+  const userId = req.params.id.replace(/:/, "");
 
+  try {
     await UserModel.updateOne(
       {
         _id: userId,
@@ -211,6 +211,7 @@ export const addAddress = async (req, res) => {
 
 export const getAllFavorites = async (req, res) => {
   const userId = req.params.id.replace(/:/, "");
+
   try {
     const user = await UserModel.findById(userId);
 
@@ -271,6 +272,30 @@ export const addToFavorites = async (req, res) => {
     console.log(error);
     res.status(500).json({
       message: "Failed to add card to favorites",
+    });
+  }
+};
+
+export const getBasket = async (req, res) => {
+  const userId = req.params.id.replace(/:/, "");
+
+  try {
+    const user = await UserModel.findById(userId);
+
+    const basketCards = await CardModel.find({
+      _id: {
+        $in: user.basket,
+      },
+    });
+
+    res.status(200).json({
+      success: true,
+      cards: basketCards,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to get cards from basket",
     });
   }
 };

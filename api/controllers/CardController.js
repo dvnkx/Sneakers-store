@@ -14,9 +14,8 @@ export const getAll = async (_, res) => {
 };
 
 export const getOne = async (req, res) => {
+  const cardId = req.params.id.replace(/:/, "");
   try {
-    const cardId = req.params.id.replace(/:/, "");
-
     const doc = await CardModel.findById(cardId).exec();
 
     res.status(200).json(doc);
@@ -58,9 +57,9 @@ export const create = async (req, res) => {
 };
 
 export const remove = async (req, res) => {
-  try {
-    const cardId = req.params.id.replace(/:/, "");
+  const cardId = req.params.id.replace(/:/, "");
 
+  try {
     await CardModel.findOneAndDelete({
       _id: cardId,
     });
@@ -77,9 +76,9 @@ export const remove = async (req, res) => {
 };
 
 export const update = async (req, res) => {
-  try {
-    const cardId = req.params.id.replace(/:/, "");
+  const cardId = req.params.id.replace(/:/, "");
 
+  try {
     await CardModel.updateOne(
       {
         _id: cardId,

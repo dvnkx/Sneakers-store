@@ -10,6 +10,7 @@ import "./styles.css";
 
 const Navbar = () => {
   const isAuth = useSelector(selectIsAuth);
+  const userData = useSelector((state) => state.auth.data);
 
   return (
     <nav>
@@ -32,6 +33,11 @@ const Navbar = () => {
         <img className="icon" alt="account-icon" src={account} />
       </CustomLink>
       <CustomLink className="icons2" to={isAuth ? "/user/basket" : "/login"}>
+        {userData?.basket.length === null && (
+          <div className="basket-counter">
+            <p>{userData.basket?.length}</p>
+          </div>
+        )}
         <img className="icon" alt="basket-icon" src={basket} />
       </CustomLink>
     </nav>

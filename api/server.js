@@ -115,6 +115,12 @@ app.put(
   UserController.addToFavorites
 );
 
+app.get(
+  "/basket:id",
+  checkAuth,
+  handleValidationErrors,
+  UserController.getBasket
+);
 app.put(
   "/basket:id",
   checkAuth,

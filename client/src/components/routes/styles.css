@@ -55,7 +55,26 @@ nav .icons {
   border-left: 0.75px solid #8c8c8c;
 }
 nav .icons2 {
+  position: relative;
   width: 5%;
+}
+nav .icons2 .basket-counter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 30% 40% 0 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: rgba(68, 68, 76, 0.6);
+  color: #8c8c8c;
 }
 nav .icon {
   width: 30px;
