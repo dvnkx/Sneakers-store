@@ -33,7 +33,7 @@ const Navbar = () => {
         <img className="icon" alt="account-icon" src={account} />
       </CustomLink>
       <CustomLink className="icons2" to={isAuth ? "/user/basket" : "/login"}>
-        {userData?.basket.length === null && (
+        {userData !== null && (
           <div className="basket-counter">
             <p>{userData.basket?.length}</p>
           </div>

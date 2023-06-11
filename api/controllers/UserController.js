@@ -302,25 +302,43 @@ export const getBasket = async (req, res) => {
 
 export const addToBasket = async (req, res) => {
   const userId = req.params.id.replace(/:/, "");
-  const { cardId } = req.body;
+  const { cardId, type } = req.body;
 
   try {
     const user = await UserModel.findById(userId);
     const alreadyAdded = user.basket.find((id) => id.toString() === cardId);
 
-    if (alreadyAdded) return;
-    else {
+    if (type === "add") {
+      if (alreadyAdded) {
+        return res.json({
+          message: "Card already in basket",
+        });
+      } else {
+        await UserModel.findByIdAndUpdate(
+          userId,
+          {
+            $push: { basket: cardId },
+          },
+          { new: true }
+        );
+
+        res.status(200).json({
+          success: true,
+          message: "Card has been added to basket",
+        });
+      }
+    } else {
       await UserModel.findByIdAndUpdate(
         userId,
         {
-          $push: { basket: cardId },
+          $pull: { basket: cardId },
         },
         { new: true }
       );
 
       res.status(200).json({
         success: true,
-        message: "Card has been added to basket",
+        message: "Card has been removed from basket",
       });
     }
   } catch (error) {

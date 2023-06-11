@@ -34,7 +34,7 @@ const CardInfo = ({
   };
 
   const handleBasket = () => {
-    axios.put(`/basket:${userData?._id}`, { cardId });
+    axios.put(`/basket:${userData?._id}`, { cardId, type: "add" });
   };
 
   return (

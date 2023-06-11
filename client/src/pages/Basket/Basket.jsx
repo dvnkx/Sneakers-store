@@ -15,14 +15,22 @@ import { Card } from "../../components/ui/CardsComponents/index";
 const Basket = () => {
   const [cards, setCards] = useState();
   const [isLoading, setIsLoading] = useState(true);
+
   const isAuth = useSelector(selectIsAuth);
   const userData = useSelector((state) => state.auth.data);
 
+  const handleDelete = (cardId) => {
+    axios.put(`/basket:${userData?._id}`, { cardId, type: "remove" });
+    return setCards((prev) => prev.filter((card) => card._id !== cardId));
+  };
+
   useEffect(() => {
-    axios.get(`/basket:${userData?._id}`).then((res) => {
-      setCards(res.data.cards);
-      setIsLoading(false);
-    });
+    if (isAuth) {
+      axios.get(`/basket:${userData?._id}`).then((res) => {
+        setCards(res.data.cards);
+        setIsLoading(false);
+      });
+    }
   }, [isAuth]);
 
   return (
@@ -34,7 +42,14 @@ const Basket = () => {
       ) : cards.length === 0 ? (
         <EmptyContainer />
       ) : (
-        cards.map((card) => <Card key={card._id} card={card} />)
+        cards.map((card) => (
+          <Card
+            key={card._id}
+            card={card}
+            isDeletable={true}
+            handleDelete={handleDelete}
+          />
+        ))
       )}
     </div>
   );
