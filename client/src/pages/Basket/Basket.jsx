@@ -5,10 +5,11 @@ import "./styles.css";
 import axios from "../../axios";
 import { selectIsAuth } from "../../redux/slices/auth";
 
-import { EmptyContainer, Spinner } from "../../components/ui/index";
-import { BasketCard } from "../../components/ui/CardsComponents/index";
-import { CardsSum } from "../../helpers/CardsSum";
-import { sneaker_box } from "../../assets/index";
+import {
+  EmptyContainer,
+  Spinner,
+  BasketContainer,
+} from "../../components/ui/index";
 
 const Basket = () => {
   const [cards, setCards] = useState();
@@ -17,7 +18,7 @@ const Basket = () => {
   const isAuth = useSelector(selectIsAuth);
   const userData = useSelector((state) => state.auth.data);
 
-  const handleDelete = (cardId) => {
+  const handleToDelete = (cardId) => {
     axios.put(`/basket:${userData?._id}`, { cardId, type: "remove" });
     return setCards((prev) => prev.filter((card) => card._id !== cardId));
   };
@@ -45,31 +46,11 @@ const Basket = () => {
       ) : cards.length === 0 ? (
         <EmptyContainer />
       ) : (
-        <>
-          <div className="cards">
-            <h2 className="counter">Basket: ({cards.length})</h2>
-            {cards.map((card) => (
-              <BasketCard
-                key={card._id}
-                card={card}
-                isDeletable={true}
-                handleDelete={handleDelete}
-              />
-            ))}
-          </div>
-          <div className="checkout">
-            <div className="checkout-content">
-              <div className="checkout-info">
-                <h1>Bag</h1>
-                <h2>
-                  Product{cards.length > 1 && "s"} Cost: {CardsSum(cards)}$
-                </h2>
-                <button onClick={handleToBuy}>Order and Buy</button>
-              </div>
-              <img src={sneaker_box} />
-            </div>
-          </div>
-        </>
+        <BasketContainer
+          cards={cards}
+          handleToDelete={handleToDelete}
+          handleToBuy={handleToBuy}
+        />
       )}
     </div>
   );
