@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import mongoose from "mongoose";
 
 import UserModel from "../models/User.js";
 import CardModel from "../models/Card.js";
@@ -351,19 +352,40 @@ export const addToBasket = async (req, res) => {
 
 export const cleanUpBasket = async (req, res) => {
   const userId = req.params.id.replace(/:/, "");
+  const { cost, productsNames, productsImages } = req.body;
   try {
     await UserModel.findByIdAndUpdate(userId, {
-      $set: { basket: [] },
+      $set: {
+        basket: [],
+      },
+      $push: {
+        orders: { cost, productsNames, productsImages },
+      },
     });
 
     res.status(200).json({
-      message: "Basket has been cleaned up",
-      orderId: Date.now(),
+      success: true,
     });
   } catch (error) {
     console.log(error);
     res.status(500).json({
       message: "Failed to clean up  basket",
+    });
+  }
+};
+
+export const getOrders = async (req, res) => {
+  const userId = req.params.id.replace(/:/, "");
+  try {
+    const user = await UserModel.findById(userId);
+    res.status(200).json({
+      success: true,
+      orders: user.orders,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Failed to orders",
     });
   }
 };

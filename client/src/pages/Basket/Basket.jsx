@@ -4,6 +4,7 @@ import "./styles.css";
 
 import axios from "../../axios";
 import { selectIsAuth } from "../../redux/slices/auth";
+import { CardsSum } from "../../helpers/CardsSum";
 
 import {
   EmptyContainer,
@@ -12,11 +13,26 @@ import {
 } from "../../components/ui/index";
 
 const Basket = () => {
-  const [cards, setCards] = useState();
+  const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const isAuth = useSelector(selectIsAuth);
   const userData = useSelector((state) => state.auth.data);
+
+  const handleToBuy = () => {
+    const orderData = {
+      cost: CardsSum(cards),
+      productsNames: cards.map((card) => card.model),
+      productsImages: cards.map((card) => card.images[0]),
+    };
+
+    console.log(orderData);
+
+    axios.patch(`/basket:${userData?._id}`, orderData).then((_) => {
+      alert(`Your order now in proccess`);
+      setCards([]);
+    });
+  };
 
   const handleToDelete = (cardId) => {
     axios.put(`/basket:${userData?._id}`, { cardId, type: "remove" });
@@ -31,13 +47,6 @@ const Basket = () => {
       });
     }
   }, [isAuth]);
-
-  const handleToBuy = () => {
-    axios.delete(`/basket:${userData?._id}`).then((res) => {
-      alert(`Your order ${res.data.orderId} now in proccess`);
-      setCards([]);
-    });
-  };
 
   return (
     <div className="basket-container">

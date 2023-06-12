@@ -79,12 +79,6 @@ app.patch(
   UserController.updatePassword
 );
 
-app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
-  res.json({
-    url: `/ulpoads/${req.file.originalname}`,
-  });
-});
-
 app.get("/cards", CardController.getAll);
 app.get("/cards/:id", CardController.getOne);
 app.post(
@@ -102,38 +96,15 @@ app.patch(
   CardController.update
 );
 
-app.get(
-  "/favorites:id",
-  checkAuth,
-  handleValidationErrors,
-  UserController.getAllFavorites
-);
-app.put(
-  "/favorites:id",
-  checkAuth,
-  handleValidationErrors,
-  UserController.addToFavorites
-);
+app.get("/favorites:id", checkAuth, UserController.getAllFavorites);
+app.put("/favorites:id", checkAuth, UserController.addToFavorites);
 
-app.get(
-  "/basket:id",
-  checkAuth,
-  handleValidationErrors,
-  UserController.getBasket
-);
-app.put(
-  "/basket:id",
-  checkAuth,
-  handleValidationErrors,
-  UserController.addToBasket
-);
+app.get("/basket:id", checkAuth, UserController.getBasket);
+app.put("/basket:id", checkAuth, UserController.addToBasket);
 
-app.delete(
-  "/basket:id",
-  checkAuth,
-  handleValidationErrors,
-  UserController.cleanUpBasket
-);
+app.patch("/basket:id", checkAuth, UserController.cleanUpBasket);
+
+app.get("/orders:id", checkAuth, UserController.getOrders);
 
 const start = async () => {
   const PORT = process.env.PORT || 3000;

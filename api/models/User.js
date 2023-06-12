@@ -29,8 +29,15 @@ const UserSchema = new mongoose.Schema(
       email: String,
     },
     favorites: [String],
-
     basket: [String],
+    orders: [
+      {
+        id: String,
+        cost: Number,
+        productsNames: [String],
+        productsImages: [String],
+      },
+    ],
   },
   {
     timestamps: true,
