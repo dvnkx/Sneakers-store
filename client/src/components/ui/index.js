@@ -15,3 +15,4 @@ export { default as UserAdressBlock } from "./AccountComponents/UserAdressBlock.
 export { default as Buttons } from "./Buttons/Buttons.jsx";
 export { default as EmptyContainer } from "./PagesComponents/EmptyContainer.jsx";
 export { default as BasketContainer } from "./PagesComponents/BasketContainer.jsx";
+export { default as OrderComponent } from "./PagesComponents/OrderComponent.jsx";

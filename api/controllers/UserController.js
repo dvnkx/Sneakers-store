@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import mongoose from "mongoose";
 
 import UserModel from "../models/User.js";
 import CardModel from "../models/Card.js";
@@ -370,22 +369,6 @@ export const cleanUpBasket = async (req, res) => {
     console.log(error);
     res.status(500).json({
       message: "Failed to clean up  basket",
-    });
-  }
-};
-
-export const getOrders = async (req, res) => {
-  const userId = req.params.id.replace(/:/, "");
-  try {
-    const user = await UserModel.findById(userId);
-    res.status(200).json({
-      success: true,
-      orders: user.orders,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: "Failed to orders",
     });
   }
 };

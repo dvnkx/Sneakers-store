@@ -4,7 +4,6 @@ import "./styles.css";
 
 import { toggleAccountReducer } from "../../helpers/AccountReducer";
 import { getBirthdayDate } from "../../helpers/getDate";
-// import fromUnixTime from "date-fns/fromUnixTime";
 
 import { SideNav } from "../../components/routes/index";
 
