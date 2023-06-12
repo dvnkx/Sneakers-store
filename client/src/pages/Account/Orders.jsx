@@ -3,26 +3,37 @@ import { SideNav } from "../../components/routes";
 import { useSelector } from "react-redux";
 import "./styles.css";
 
-const Orders = ({ orders }) => {
-  const { avatarUrl } = useSelector((state) => state.auth.data);
+import { Spinner, OrderComponent } from "../../components/ui";
+
+const Orders = () => {
+  const { data, status } = useSelector((state) => state.auth);
+  const isLoading = status === "loading";
 
   return (
     <div className="orders-container">
-      <SideNav avatar={avatarUrl} />
-      <div className="orders-block">
-        <h1>Orders</h1>
-        <div className="orders">
-          <ul>
-            {orders ? (
-              orders.map((o) => {
-                <li>{o._id}</li>;
-              })
-            ) : (
-              <li>There are no orders</li>
-            )}
-          </ul>
-        </div>
-      </div>
+      {isLoading ? (
+        <Spinner marginLeft={"40%"} />
+      ) : data.orders.length !== 0 ? (
+        <>
+          <SideNav avatar={data.avatarUrl} />
+          <div className="orders-block">
+            <h1>Orders: {data.orders.length}</h1>
+            <div className="orders">
+              {data.orders &&
+                data.orders.map((order) => (
+                  <OrderComponent key={order._id} order={order} />
+                ))}
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <SideNav avatar={data.avatarUrl} />
+          <div className="no-orders">
+            <p>There are no orders</p>
+          </div>
+        </>
+      )}
     </div>
   );
 };

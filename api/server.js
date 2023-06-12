@@ -101,10 +101,7 @@ app.put("/favorites:id", checkAuth, UserController.addToFavorites);
 
 app.get("/basket:id", checkAuth, UserController.getBasket);
 app.put("/basket:id", checkAuth, UserController.addToBasket);
-
 app.patch("/basket:id", checkAuth, UserController.cleanUpBasket);
-
-app.get("/orders:id", checkAuth, UserController.getOrders);
 
 const start = async () => {
   const PORT = process.env.PORT || 3000;
