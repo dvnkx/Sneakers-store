@@ -17,16 +17,16 @@ const Navbar = () => {
       <CustomLink to="/">
         <img className="logo" alt="logo" src={logo} />
       </CustomLink>
-      <CustomLink to="/sneakers/men">
+      <CustomLink to="/products/men">
         <p>Men</p>
       </CustomLink>
-      <CustomLink to="/sneakers/women">
+      <CustomLink to="/products/women">
         <p>Women</p>
       </CustomLink>
-      <CustomLink to="/sneakers/kids">
+      <CustomLink to="/products/kids">
         <p>Kids</p>
       </CustomLink>
-      <CustomLink to={isAuth ? "/sneakers/favorites" : "/login"}>
+      <CustomLink to={isAuth ? "/products/favorites" : "/login"}>
         <p>Favorites</p>
       </CustomLink>
       <CustomLink className="icons" to={isAuth ? "/user/account" : "/login"}>

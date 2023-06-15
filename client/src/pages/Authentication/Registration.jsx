@@ -11,7 +11,7 @@ import { SubmitButton, CustomLink } from "../../components/ui/index";
 
 import { registrSchema } from "../../schemas";
 
-export const Registartion = () => {
+const Registartion = () => {
   const isAuth = useSelector(selectIsAuth);
   const dispatch = useDispatch();
 

@@ -33,7 +33,7 @@ const Footer = () => {
       </div>
       <div className="bottom">
         <div>
-          <span />
+          <hr />
         </div>
         <div className="links">
           <h3>© 2023 LACESTORE. All right reserved.</h3>

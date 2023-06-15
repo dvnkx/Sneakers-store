@@ -15,7 +15,7 @@ export { default as example } from "./visions/example.png";
 export { default as nb_logo } from "./logos/nb-logo.png";
 export { default as nike_logo } from "./logos/nike-logo.png";
 export { default as adidas_logo } from "./logos/adidas-logo.png";
-export { default as yeezy_logo } from "./logos/yeezy-logo.png";
+export { default as puma_logo } from "./logos/puma-logo.png";
 export { default as top_arrow } from "./icons/top-arrow.png";
 export { default as bottom_arrow } from "./icons/bottom-arrow.png";
 export { default as sneaker_box } from "./icons/sneaker-box.png";

@@ -61,6 +61,7 @@
   height: auto;
   position: absolute;
   opacity: 0;
+  background-color: transparent;
 }
 .container .text-intro {
   margin-top: 10px;
