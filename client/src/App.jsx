@@ -8,9 +8,9 @@ import { fetchAuthMe, selectIsAuth } from "./redux/slices/auth.js";
 
 import { Navbar, Footer } from "./components/routes/index.js";
 
-import { Landing } from "./pages/index.js";
+import { Landing } from "./pages/Landing/Landing.jsx";
 
-const Registration = lazy(() =>
+export const Registration = lazy(() =>
   import("./pages/Authentication/Registration.jsx")
 );
 const Login = lazy(() => import("./pages/Authentication/Login.jsx"));
@@ -41,45 +41,45 @@ const App = () => {
               path="account"
               element={
                 <WithSuspense
-                  Childern={<WithSuspense Childern={<Account />} />}
+                  Children={<WithSuspense Children={<Account />} />}
                 />
               }
             />
           )}
           <Route
             path="basket"
-            element={<WithSuspense Childern={<Basket />} />}
+            element={<WithSuspense Children={<Basket />} />}
           />
           <Route
             path="orders"
-            element={<WithSuspense Childern={<Orders />} />}
+            element={<WithSuspense Children={<Orders />} />}
           />
         </Route>
         <Route path="/products">
           <Route
             path="men"
-            element={<WithSuspense Childern={<Category />} />}
+            element={<WithSuspense Children={<Category />} />}
           />
           <Route
             path="women"
-            element={<WithSuspense Childern={<Category />} />}
+            element={<WithSuspense Children={<Category />} />}
           />
           <Route
             path="kids"
-            element={<WithSuspense Childern={<Category />} />}
+            element={<WithSuspense Children={<Category />} />}
           />
-          <Route path=":id" element={<WithSuspense Childern={<Sneaker />} />} />
+          <Route path=":id" element={<WithSuspense Children={<Sneaker />} />} />
           <Route
             path="favorites"
-            element={<WithSuspense Childern={<Favorites />} />}
+            element={<WithSuspense Children={<Favorites />} />}
           />
         </Route>
-        <Route path="login" element={<WithSuspense Childern={<Login />} />} />
+        <Route path="login" element={<WithSuspense Children={<Login />} />} />
         <Route
-          path="registartion"
-          element={<WithSuspense Childern={<Registration />} />}
+          path="registration"
+          element={<WithSuspense Children={<Registration />} />}
         />
-        <Route path="*" element={<WithSuspense Childern={<NotFound />} />} />
+        <Route path="*" element={<WithSuspense Children={<NotFound />} />} />
       </Routes>
       <Footer />
     </BrowserRouter>

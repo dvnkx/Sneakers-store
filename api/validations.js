@@ -15,7 +15,7 @@ export const registerValidation = [
   body("fullName", "Full name length must be minimum 2 symbols").isLength({
     min: 2,
   }),
-  body("avatarUrl", "Wrong url reference").optional().isURL(),
+  body("avatarUrl", "Wrong url reference").optional(),
 ];
 
 export const createCardValidation = [

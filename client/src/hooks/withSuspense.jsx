@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 
-const WithSuspense = ({ Childern }) => {
-  return <Suspense fallback={<p>Loading...</p>}>{Childern}</Suspense>;
+const WithSuspense = ({ Children }) => {
+  return <Suspense fallback={<p>Loading...</p>}>{Children}</Suspense>;
 };
 
 export default WithSuspense;

@@ -11,7 +11,7 @@ import {
   example,
 } from "../../assets/index.js";
 
-const Landing = () => {
+export const Landing = () => {
   return (
     <div className="container">
       <p>Discover limited sneakars without limitation</p>
@@ -108,5 +108,3 @@ const Landing = () => {
     </div>
   );
 };
-
-export default Landing;
