@@ -20,3 +20,7 @@ export { default as top_arrow } from "./icons/top-arrow.png";
 export { default as bottom_arrow } from "./icons/bottom-arrow.png";
 export { default as sneaker_box } from "./icons/sneaker-box.png";
 export { default as empty_fav } from "./icons/empty-fav.png";
+export { default as instagram } from "./icons/instagram.png";
+export { default as twitter } from "./icons/twitter.png";
+export { default as telegram } from "./icons/telegram.png";
+export { default as linked_in } from "./icons/linkedin.png";
