@@ -70,19 +70,31 @@ const CardInfo = ({
         <ul>
           <li>{color}</li>
         </ul>
-        <h2>Fastener :</h2>
-        <ul>
-          <li>{fastener}</li>
-        </ul>
-        <h2>Technology :</h2>
-        <ul>
-          <li>{technology}</li>
-        </ul>
-        <h2>Height :</h2>
-        <ul>
-          <li>General heigth: {generalHeight}</li>
-          <li>Sole heigth: {soleHeight}</li>
-        </ul>
+        {fastener && (
+          <>
+            <h2>Fastener :</h2>
+            <ul>
+              <li>{fastener}</li>
+            </ul>
+          </>
+        )}
+        {technology && (
+          <>
+            <h2>Technology :</h2>
+            <ul>
+              <li>{technology}</li>
+            </ul>
+          </>
+        )}
+        {generalHeight | soleHeight && (
+          <>
+            <h2>Height :</h2>
+            <ul>
+              {generalHeight && <li>General height: {generalHeight}</li>}
+              {soleHeight && <li>Sole height: {soleHeight}</li>}
+            </ul>
+          </>
+        )}
       </div>
     </div>
   );

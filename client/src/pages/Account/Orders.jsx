@@ -29,7 +29,7 @@ const Orders = () => {
         </>
       ) : (
         <>
-          <SideNav avatar={data.avatarUrl ? data.avatarUrl : account} />
+          <SideNav avatar={data && data.avatarUrl ? data.avatarUrl : account} />
           <div className="no-orders">
             <p>There are no orders</p>
           </div>
