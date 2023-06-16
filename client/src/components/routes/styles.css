@@ -5,14 +5,13 @@
 }
 
 nav {
-  margin: 0;
-  background-color: #d6d6d6;
-  width: 100%;
-  height: 80px;
-  border-bottom: 0.75px solid #8c8c8c;
+  width: 100vw;
+  height: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  border-bottom: 0.75px solid #8c8c8c;
+  background-color: #d6d6d6;
 }
 nav a {
   width: 17.5%;
@@ -37,14 +36,33 @@ nav a:first-of-type {
   width: 20%;
   border-right: 0.75px solid #8c8c8c;
 }
+@media screen and (width < 700px) {
+  nav a:first-of-type img {
+    -webkit-transition: 200ms ease;
+    -o-transition: 200ms ease;
+    transition: 200ms ease;
+    width: 10vw;
+  }
+}
 nav a p {
-  font-size: 20px;
+  font-size: 1.5vw;
   color: #0b0909;
   position: relative;
+  -webkit-transition: 200ms ease;
+  -o-transition: 200ms ease;
+  transition: 200ms ease;
+}
+@media screen and (width < 700px) {
+  nav a p {
+    -webkit-transition: 200ms ease;
+    -o-transition: 200ms ease;
+    transition: 200ms ease;
+    font-size: 3vw;
+  }
 }
 nav a p:before {
-  position: absolute;
   content: "";
+  position: absolute;
   width: 0%;
   height: 1px;
   border-bottom: 2px solid #0b0909;
@@ -75,10 +93,20 @@ nav .icons2 .basket-counter {
   position: absolute;
   background-color: rgba(68, 68, 76, 0.6);
   color: #8c8c8c;
+  -webkit-transition: 200ms ease;
+  -o-transition: 200ms ease;
+  transition: 200ms ease;
 }
 nav .icon {
-  width: 30px;
-  height: 30px;
+  width: 2vw;
+}
+@media screen and (width < 700px) {
+  nav .icon {
+    -webkit-transition: 200ms ease;
+    -o-transition: 200ms ease;
+    transition: 200ms ease;
+    width: 4vw;
+  }
 }
 nav .logo {
   width: 60px;
