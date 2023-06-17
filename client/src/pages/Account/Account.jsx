@@ -5,13 +5,15 @@ import "./styles.css";
 import { toggleAccountReducer } from "../../helpers/AccountReducer";
 import { getBirthdayDate } from "../../helpers/getDate";
 
+import { account } from "../../assets/index";
+
 import { SideNav } from "../../components/routes/index";
 
 import {
   AccountBlock,
   UserPasswordBlock,
   UserDataBlock,
-  UserAdressBlock,
+  UserAddressBlock,
 } from "../../components/ui/index";
 
 import {
@@ -34,21 +36,25 @@ const Account = () => {
     (state) => state.auth.data
   );
 
-  const personalData = [fullName, email, getBirthdayDate(birthday)];
+  const personalData = [
+    fullName,
+    email,
+    birthday ? getBirthdayDate(birthday) : "09.09.1814",
+  ];
   const addressData = Object.values(deliveryAddress);
 
   return (
     <div className="account-container">
       {
         <>
-          <SideNav avatar={avatarUrl} />
+          <SideNav avatar={avatarUrl ? avatarUrl : account} />
           <div className="middle">
             {!state.data ? (
               <AccountBlock
                 setVisible={() => dispatch({ type: "data" })}
                 styles={userDataStyles}
                 data={personalData}
-                section={"Presonal Data"}
+                section={"Personal Data"}
               />
             ) : (
               <UserDataBlock setVisible={() => dispatch({ type: "data" })} />
@@ -61,7 +67,7 @@ const Account = () => {
                 styles={shippingStyles}
               ></AccountBlock>
             ) : (
-              <UserAdressBlock
+              <UserAddressBlock
                 setVisible={() => dispatch({ type: "address" })}
               />
             )}

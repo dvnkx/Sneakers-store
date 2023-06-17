@@ -44,7 +44,7 @@ const SideNav = ({ avatar }) => {
           <img alt="ord" src={href !== "Orders" ? sneaker : sneaker_active} />
           My Orders
         </CustomLink>
-        <span />
+        <hr />
         <button className="logout" onClick={onClickLogout}>
           <img alt="logout" src={exit} />
           Logout
