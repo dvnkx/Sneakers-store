@@ -24,3 +24,4 @@ export { default as instagram } from "./icons/instagram.png";
 export { default as twitter } from "./icons/twitter.png";
 export { default as telegram } from "./icons/telegram.png";
 export { default as linked_in } from "./icons/linkedin.png";
+export { default as menu } from "./icons/menu.png";

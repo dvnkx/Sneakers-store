@@ -13,8 +13,8 @@ import {
 
 export const Landing = () => {
   return (
-    <div className="container">
-      <p>Discover limited sneakars without limitation</p>
+    <div className="landing-container">
+      <h1>Discover limited sneakers without limitation</h1>
       <div className="content">
         <div className="brand-intro">
           <ImgIntro

@@ -4,7 +4,7 @@
   text-decoration: none;
 }
 
-nav {
+.navbar-container {
   width: 100vw;
   height: 10vh;
   display: -webkit-box;
@@ -13,7 +13,13 @@ nav {
   border-bottom: 0.75px solid #8c8c8c;
   background-color: #d6d6d6;
 }
-nav a {
+.navbar-container .brand img {
+  display: none;
+}
+.navbar-container .brand h1 {
+  display: none;
+}
+.navbar-container a {
   width: 17.5%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -26,41 +32,22 @@ nav a {
           align-items: center;
   list-style-type: none;
 }
-nav a.active p::before {
+.navbar-container a.active p::before {
   width: 70%;
   -webkit-transition: all 200ms ease-in-out;
   -o-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
 }
-nav a:first-of-type {
+.navbar-container a:first-of-type {
   width: 20%;
   border-right: 0.75px solid #8c8c8c;
 }
-@media screen and (width < 700px) {
-  nav a:first-of-type img {
-    -webkit-transition: 200ms ease;
-    -o-transition: 200ms ease;
-    transition: 200ms ease;
-    width: 10vw;
-  }
-}
-nav a p {
-  font-size: 1.5vw;
+.navbar-container a p {
+  font-size: 20px;
   color: #0b0909;
   position: relative;
-  -webkit-transition: 200ms ease;
-  -o-transition: 200ms ease;
-  transition: 200ms ease;
 }
-@media screen and (width < 700px) {
-  nav a p {
-    -webkit-transition: 200ms ease;
-    -o-transition: 200ms ease;
-    transition: 200ms ease;
-    font-size: 3vw;
-  }
-}
-nav a p:before {
+.navbar-container a p:before {
   content: "";
   position: absolute;
   width: 0%;
@@ -68,15 +55,15 @@ nav a p:before {
   border-bottom: 2px solid #0b0909;
   bottom: 3px;
 }
-nav .icons {
+.navbar-container .icons {
   width: 5%;
   border-left: 0.75px solid #8c8c8c;
 }
-nav .icons2 {
+.navbar-container .icons2 {
   position: relative;
   width: 5%;
 }
-nav .icons2 .basket-counter {
+.navbar-container .icons2 .basket-counter {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -97,22 +84,162 @@ nav .icons2 .basket-counter {
   -o-transition: 200ms ease;
   transition: 200ms ease;
 }
-nav .icon {
-  width: 2vw;
+.navbar-container .icon {
+  width: 30px;
 }
-@media screen and (width < 700px) {
-  nav .icon {
-    -webkit-transition: 200ms ease;
-    -o-transition: 200ms ease;
-    transition: 200ms ease;
-    width: 4vw;
-  }
-}
-nav .logo {
+.navbar-container .logo {
   width: 60px;
   height: 60px;
 }
+.navbar-container button {
+  display: none;
+}
+.navbar-container .dropdown-menu {
+  display: none;
+}
 
+@media screen and (max-width: 767px) {
+  .navbar-container {
+    height: 30vh;
+  }
+  .navbar-container a {
+    display: none;
+  }
+  .navbar-container .brand {
+    margin-left: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .navbar-container .brand img {
+    display: block;
+    width: 100px;
+  }
+  .navbar-container .brand h1 {
+    -webkit-box-flex: 0.5;
+        -ms-flex: 0.5;
+            flex: 0.5;
+    display: inline;
+    text-transform: uppercase;
+    opacity: 0.6;
+    letter-spacing: 0.1em;
+    font-size: 30px;
+  }
+  .navbar-container .dropdown {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .navbar-container .dropdown .dropdown-menu {
+    position: absolute;
+    display: block;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+    margin: 30px 70px 0 0px;
+    border-radius: 7px;
+    background-color: rgba(68, 68, 76, 0.2);
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .navbar-container .dropdown .dropdown-menu.open {
+    opacity: 1;
+  }
+  .navbar-container .dropdown .dropdown-menu .categories {
+    width: 100%;
+    height: 75%;
+  }
+  .navbar-container .dropdown .dropdown-menu .categories a {
+    width: 50%;
+    height: 50%;
+    border: none;
+    display: inline-block;
+  }
+  .navbar-container .dropdown .dropdown-menu .categories a.active p::before {
+    width: 35%;
+  }
+  .navbar-container .dropdown .dropdown-menu .categories a p {
+    font-size: 15px;
+  }
+  .navbar-container .dropdown .dropdown-menu .categories a p::before {
+    border-bottom: 0.5px solid #0b0909;
+    bottom: -0.5px;
+  }
+  .navbar-container .dropdown .dropdown-menu .account-i {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    width: 100%;
+    height: 25%;
+  }
+  .navbar-container .dropdown .dropdown-menu .account-i a {
+    border: none;
+    display: inline-block;
+    height: 100%;
+  }
+  .navbar-container .dropdown .dropdown-menu .account-i a .icon {
+    margin-left: 5px;
+    width: 20px;
+  }
+  .navbar-container .dropdown .toggle-btn {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 20px 20px 0 0;
+    border: none;
+    background-color: transparent;
+    opacity: 0.6;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  .navbar-container .dropdown .toggle-btn:hover {
+    -webkit-transition: 200ms ease-in-out;
+    -o-transition: 200ms ease-in-out;
+    transition: 200ms ease-in-out;
+    opacity: 1;
+  }
+  .navbar-container .dropdown .toggle-btn:active {
+    -webkit-transition: 0.2s ease;
+    -o-transition: 0.2s ease;
+    transition: 0.2s ease;
+    scale: 0.95;
+  }
+  .navbar-container .dropdown .toggle-btn .toggle-btn_i {
+    width: 40px;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    rotate: 90deg;
+    padding-top: 10px;
+  }
+  .navbar-container .dropdown .toggle-btn .toggle-btn_i.open {
+    rotate: 0deg;
+  }
+}
 .footer-container {
   max-width: 2000px;
   margin: auto;
